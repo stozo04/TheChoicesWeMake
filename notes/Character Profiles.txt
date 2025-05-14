@@ -1,0 +1,166 @@
+﻿## Andrew Nolan (Protagonist)
+### Basic Information
+- Name: Andrew "Andy" Nolan
+- Age: 20 (turning 21 soon)
+- Occupation: College student, studying Information Technology
+- Physical Description: Tall, lean build, short brown hair, brown eyes, often wearing casual clothes like jeans and t-shirts
+ 
+### Backstory
+- Grew up in a single-parent household with his mother, Jill, and his grandfather, Jim
+- Father, an alcoholic, passed away when Andrew was young
+- Struggled with feelings of abandonment and trust issues throughout childhood
+- Jim, a retired Army veteran, became a father figure to Andrew
+- Was often bullied in school due to his quiet and introverted nature
+- Found solace in studies, computer programming, and gaming
+ 
+### Personality Traits
+- Introverted and reserved
+- Intelligent and analytical, with a passion for AI and machine learning
+- Sensitive and empathetic, often putting others' needs before his own
+- Struggles with expressing emotions and fear of rejection
+- Methodical problem-solver, influenced by his grandfather's teachings
+- Copes with loneliness through gaming and online communities
+ 
+### Motivations and Goals
+- To build a stable and successful career in the IT industry
+- To create an AI companion that understands him deeply
+- To protect and support his loved ones, especially his mother and grandfather
+- To find love and acceptance, particularly with Natalie
+- To overcome his fear of failure and learn to take risks
+ 
+### Relationships
+- Natalie Alexander: Best friend and love interest. Harbors deep feelings for her but struggles to express them.
+- Jill Nolan: Mother, recently diagnosed with cancer. Andrew feels a strong sense of responsibility to care for her.
+- Jim Nolan: Grandfather and father figure. Source of wisdom, support, and life lessons.
+- Chris Jones: Natalie's boyfriend, source of tension and jealousy for Andrew.
+- Professor Mendez: Mentor and guide in Andrew's academic journey.
+- Anna: Mysterious girl who appears to Andrew, giving cryptic warnings about the future.
+ 
+### Character Arc
+- Dealing with his mother's cancer diagnosis and supporting her through treatment
+- Navigating his feelings for Natalie while respecting her relationship with Chris
+- Balancing academic aspirations (AI project, internship) with personal challenges
+- Learning to take risks, express his emotions, and confront his fears
+- Uncovering the mystery behind Anna's warnings and her connection to his future
+- Growing into a more confident, assertive version of himself
+ 
+## Natalie Alexander
+ 
+### Basic Information
+- Name: Natalie Elizabeth Alexander
+- Age: 21
+- Occupation: College student, studying Nursing
+- Physical Description: Medium height, slender build, long blonde hair, blue eyes, often seen wearing casual but stylish clothing
+ 
+### Backstory
+- Grew up in a loving, supportive middle-class family
+- Has a younger brother, Jake, with whom she shares a close bond
+- Excelled in studies and extracurricular activities, driven by her parents' work ethic
+- Began dating Chris in high school, attracted by his carefree, fun-loving nature
+ 
+### Personality Traits
+- Kind, compassionate, and empathetic, with a strong desire to help others
+- Intelligent and ambitious, with a dream of becoming a physician
+- Organized and responsible, sometimes prioritizing studies over personal life
+- Struggles with indecisiveness and fear of making the wrong choices
+- Values emotional depth, trust, and shared goals in relationships
+ 
+### Motivations and Goals
+- To become a successful and compassionate physician
+- To find fulfillment and growth in her personal relationships
+- To make her family proud and be a role model for her younger brother
+- To navigate her growing feelings for Andrew while resolving doubts about Chris
+- To strike a balance between her academic goals and personal happiness
+ 
+### Relationships
+- Andrew Nolan: Best friend and potential love interest. Growing confusion about her feelings for him.
+- Chris Jones: Long-term boyfriend, relationship becoming strained due to differing priorities and lack of emotional connection.
+- Sarah: Roommate and close friend, confidant regarding her doubts about Chris and feelings for Andrew.
+- Jake Alexander: Younger brother, shares a close bond and feels a sense of responsibility towards him.
+- Elizabeth and Michael Alexander: Supportive parents who have instilled a strong work ethic and value for education.
+ 
+### Character Arc
+- Questioning her relationship with Chris and confronting their growing incompatibility
+- Exploring her deepening feelings for Andrew and the changing nature of their friendship
+- Balancing her academic pursuits with her personal life and relationships
+- Gaining the courage to make difficult decisions about her future and happiness
+- Supporting Andrew through his mother's illness and his own personal challenges
+- Discovering her own strength, resilience, and capacity for growth
+ 
+## Chris Jones (Antagonist)
+ 
+### Basic Information
+- Age: 22
+- Occupation: Apprentice electrician
+- Physical Description: Tall, athletic build, short blonde hair, blue eyes, often seen wearing casual, laid-back clothing
+ 
+### Backstory
+- Grew up in the same small town as Natalie
+- Raised in a carefree, laid-back household that prioritized enjoying life over long-term planning
+- Popular in high school due to his outgoing, fun-loving personality
+- Began dating Natalie in senior year, attracted by her warmth and intelligence
+ 
+### Personality Traits
+- Outgoing, sociable, and fun-loving, with a tendency to avoid serious conversations
+- Laid-back and spontaneous, often living in the moment without much long-term planning
+- Loyal and supportive, but can be emotionally distant or avoidant when faced with conflicts
+- Values comfort, familiarity, and the carefree aspects of relationships
+- Struggles with deeper emotional connections and personal growth
+ 
+### Motivations and Goals
+- To maintain the comfort and familiarity of his relationship with Natalie
+- To enjoy life and have fun without worrying too much about the future
+- To succeed in his apprenticeship and become a certified electrician
+- To hold onto the carefree, popular persona he developed in high school
+- To avoid confronting his own fears and insecurities about personal growth
+ 
+### Relationships
+- Natalie Alexander: Long-term girlfriend, relationship becoming strained due to differing priorities and emotional needs.
+- Tyler: Best friend and confidant, reinforces Chris's laid-back approach to life and relationships.
+- Andrew Nolan: Natalie's best friend, source of underlying tension and jealousy for Chris.
+- Parents: Supportive but enabling of Chris's carefree lifestyle and lack of long-term planning.
+ 
+### Character Arc
+- Facing the growing tension and incompatibility in his relationship with Natalie
+- Confronting his own fears and insecurities about personal growth and the future
+- Realizing the limitations of his laid-back approach to life and relationships
+- Deciding whether to adapt and mature alongside Natalie or remain stuck in his comfort zone
+- Dealing with the consequences of his emotional avoidance and lack of long-term planning
+- Potentially learning to let go and allow Natalie to find happiness, even if it means losing her
+ 
+## Anna (Supporting Character/Mysterious Figure)
+ 
+### Basic Information
+- Age: Appears to be around 18-20
+- Occupation: Unknown, possibly a time traveler
+- Physical Description: Striking resemblance to Natalie, with dark hair and green eyes
+ 
+### Backstory
+- Comes from a future timeline where Andrew is dead
+- Possesses knowledge of Andrew's life and future events
+- Tasked with guiding Andrew through key moments to prevent his untimely death
+ 
+### Personality Traits
+- Mysterious, cryptic, and purposeful in her interactions
+- Caring and protective of Andrew, but maintains a certain distance
+- Wise beyond her years, with a deep understanding of the consequences of choices
+- Determined and focused on her mission to alter Andrew's fate
+ 
+### Motivations and Goals
+- To prevent Andrew's death by guiding him through critical decisions
+- To build trust with Andrew and convince him of the importance of his choices
+- To maintain the integrity of the timeline by involving as few people as possible
+- To fulfill her role as a guardian and protector of Andrew's future
+- To ensure the events that lead to her own existence remain intact
+ 
+### Relationships
+- Andrew Nolan: Focus of her mission, builds trust through cryptic warnings and proof of knowledge.
+- Natalie Alexander: Deliberately avoids direct contact, despite their future connection.
+ 
+### Character Arc
+- Guiding Andrew through key decisions while maintaining the mystery of her identity
+- Gradually revealing her knowledge and building trust with Andrew
+- Providing cryptic warnings and clues about Andrew's future, including the lottery numbers
+- Influencing Andrew's choices to alter his fate and prevent his death
+- Ultimately revealing her true identity and connection to Andrew and Natalie's future
+- Completing her mission and ensuring the timeline that leads to her own existence remains intact
