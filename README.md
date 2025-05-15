@@ -2,25 +2,18 @@
 
 A novel project exploring the intricate relationships between characters and their life choices.
 
+➤ Quick-start: [Timeline Summary](notes/major_event_timelines.md) │ [Characters at a Glance](notes/character_profiles.md)
+
+
 ## Repository Structure
 
-- **chapters/**  
-  Contains the full text of each chapter, documenting the main narrative.
-
-- **chapter_breakdowns/**  
-  Brief outlines explaining how each chapter starts, unfolds, and ends, providing structural analysis.
-
-- **chapter_scenes/**  
-  Detailed descriptions of settings and scenes for each chapter, helping visualize the story's environment.
-
-- **notes/**  
-  General notes including character details, thematic elements, symbols, and manuscript summaries.
-
-- **timeline/**  
-  Documentation of major events and mystical/time-travel elements in the story.
-
-- **images/** 
-  Mermaid diagram and Visual assets and references for the project.
+📂 chapters/ – final prose, one .txt per numbered chapter  
+📂 chapter_scenes/ – optional scene-level exports if a chapter exceeds ~1 500 words  
+📂 chapter_breakdowns/ – 1-page narrative outline per chapter  
+📂 notes/ – character bios, theme notes, research links  
+📂 timeline/ – detailed event chart; see timeline_summary.md for quick view  
+📂 images/ – Mermaid diagram and Visual assets and references for the project.
+📂 pdfs/ – Comprehensive Feedback from AI
 
 ## File Organization
 

@@ -1,4 +1,4 @@
-﻿## *The Choices We Make* – Major Events Timeline (Expanded)
+﻿## *The Choices We Make* – Major Events Timeline
 
 Below, `[CH n]` entries match manuscript chapter numbers.  `[CTX]` items are contextual milestones **not** depicted in a numbered chapter.
 
