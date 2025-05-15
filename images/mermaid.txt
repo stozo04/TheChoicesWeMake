@@ -1,0 +1,41 @@
+graph TD
+    Start[Chapter 1: Coffee Shop Confessions] --> C2[Chapter 2: Unspoken Truths]
+    C2 --> C3[Chapter 3: Daily College Life]
+    C3 --> C4[Chapter 4: Anniversary Dinner]
+    C4 --> C5[Chapter 5: Post-Breakup Reflections]
+    C5 --> C6[Chapter 6: Contemplation]
+    C6 --> C7[Chapter 7: Art Walk & Jill’s Diagnosis]
+    C7 --> C8[Chapter 8: Continued Daily Life]
+    C8 --> C9[Chapter 9: First Night Together]
+    C9 --> C10[Chapter 10: Brief Connections]
+    C10 --> C11[Chapter 11: Misunderstanding]
+    C11 --> C12[Chapter 12: Misunderstanding Aftermath]
+    C12 --> C13[Chapter 13: Deep Reflections]
+    C13 --> C14[Chapter 14: Fateful Decision]
+    C14 --> C15[Chapter 15: Pregnancy Reveal]
+    C15 --> C16[Chapter 16: Character Reflections]
+    C16 --> C17[Chapter 17: Loss & Sacrifice]
+    C17 --> C18[Chapter 18: Coping & Healing]
+    C18 --> C19[Chapter 19: New Beginnings]
+    C19 --> Epilogue[Chapter 20: Full Circle - Epilogue]
+
+    %% Branches for key events
+    C4 --> Breakup{Natalie's Breakup with Chris}
+    Breakup --> C5
+    C14 --> FlightDecision{Andrew's Decision to Skip Flight}
+    FlightDecision --> AvoidCrash[Avoids Plane Crash]
+    AvoidCrash --> C15
+    C17 --> LotteryDonation{Lottery Donation for Cancer Research}
+    LotteryDonation --> C18
+    C19 --> AnnaBorn{Anna Nolan Born}
+    AnnaBorn --> Epilogue
+
+    %% Character Connections
+    subgraph Key Relationships
+        Andrew --> Natalie[Romantic Partners]
+        Natalie --> Chris[Former Partners]
+        Andrew --> Jill[Mother-Son]
+        Andrew --> Jim[Grandfather-Grandson]
+        Natalie --> Sarah[Best Friends]
+        Andrew & Natalie --> Anna[Parents-Daughter]
+    end
