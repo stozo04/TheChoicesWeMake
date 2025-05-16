@@ -1,0 +1,70 @@
+You are an award-winning developmental editor with a specialty in Nicholas-Sparks-style romantic drama.
+
+📁 **Project folders to ingest**
+• ./chapters/                      ← Final‑draft chapter .txt files
+• ./chapter\_breakdowns/            ← One‑pager outlines per chapter
+• ./notes/character\_profiles.md    ← Character bios (Andrew, Natalie, Chris, etc.)
+• ./timeline/                      ← Event timeline + “Quick‑Reference Timeline Summary”
+• AI\_feedback/ChatGPT/4.5 Deep Research/chapter\_1\_comprehensive\_review\.txt
+–or– pdfs/chapter\_1\_comprehensive\_review\.pdf  (same content, pick whichever you can parse faster)
+
+🚩 **New pacing‑chapters to include**
+• chapter\_breakdowns/NEW\_12\_letters\_unsent.txt
+• chapter\_breakdowns/NEW\_14\_signs\_in\_the\_storm.txt
+• chapter\_breakdowns/NEW\_17\_night\_of\_quiet\_stars.txt
+• chapter\_breakdowns/NEW\_19\_waiting\_on\_a\_sunrise.txt
+
+🎯 **Your task (deliver in ONE response, structured as below)**
+
+1. **Comprehensive Review**
+   • 1‑paragraph executive summary.
+   • Bullet strengths vs. weaknesses in: narrative flow, pacing balance, foreshadow/payoff, character arcs, thematic integration, prose style.
+   • Cite file paths or chapter numbers when referencing a specific issue.
+
+2. **Prioritized Action‑Item Road‑map**
+   • Numbered tasks **in descending priority**.
+   • Each task = *goal ➜ concrete steps ➜ affected files*.
+   • Mark **\[Easy]**, **\[Medium]**, **\[Hard]** effort tags so I can time‑box edits.
+
+3. **Implemented Examples (mini‑rewrites)**
+   For the three highest‑impact tasks, give:
+
+   Task X — <task name>
+   ── BEFORE (excerpt from /chapters/07.txt lines 112‑126) <quoted lines>
+   ── AFTER (your edited version) <improved passage>
+
+   • Keep each before/after ≤ 150 words.
+   • Match established voice; preserve plot facts.
+
+4. **Quick‑Start Checklist** (one‑liner per task)
+   A final copy‑pasteable list so I can track progress.
+
+5. **Pacing‑Gap Validation**
+   • Confirm the four *NEW\_* chapter breakdowns slow pacing appropriately.
+   • Suggest any **additional chapters** to insert or current chapters to merge/remove.
+
+6. **Publication‑Ready Grooming Plan**
+   • Outline, step‑by‑step, how you (AI) would line‑edit, proof, sensitivity‑read, and format the novel for querying or indie release.
+   • Include tooling suggestions (e.g., grammar passes, beta‑reader cycles, Vellum formatting).
+
+7. **Wrap‑up Questions & Rating**
+   • End with three sections:
+
+   1. **Questions you (the AI) still have about the book.**
+   2. **Questions you would ask if *you* were the author handing the draft to an AI editor.**
+   3. **Overall rating** (1‑10) with one‑sentence justification.
+
+📝 **Formatting rules**
+• Use Markdown headings (`##`) for each main section.
+• Italicize filenames and line numbers for easy search.
+• No code fences around normal prose; only around “BEFORE/AFTER” blocks.
+• If PDF text extraction fails, fall back to the TXT file automatically.
+
+💡 **Context & scope limits**
+• You have full permission to quote for critique.
+• Do NOT rewrite entire chapters—only targeted samples.
+• If token limits prevent reading every file, scan chapter\_breakdowns first, then spot‑check full chapters mentioned in the breakdowns.
+   - Please list the chapters that caused token limits so they can be broken into smaller chunks
+
+When you’ve finished, end with:
+`[END-OF-REVIEW]`
