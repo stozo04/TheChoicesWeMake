@@ -1,0 +1,60 @@
+{
+    "chapter": {
+      "number": 3,
+      "title": "Shadows of the Past",
+      "timeframe": "Weekend, Week 1"
+    },
+    "plot_points": [
+      "Andrew arrives at his childhood home and senses something is off.",
+      "His mom and Grandpa Jim mention his birthday, encouraging celebration.",
+      "His mother reveals a suspicious lump in her breast and awaits test results.",
+      "Andrew comforts his mother but battles his own fear and helplessness.",
+      "Andrew receives a text from Natalie about her fight with Chris on their anniversary.",
+      "Andrew faces emotional overload, torn between family and Natalie’s crisis."
+    ],
+    "characters": {
+      "main": [
+        {
+          "name": "Andrew Nolan",
+          "role": "protagonist",
+          "focus": "His emotional vulnerability confronting his mother's illness and Natalie's turmoil."
+        }
+      ],
+      "supporting": [
+        {
+          "name": "Jill Nolan",
+          "role": "Andrew’s mother",
+          "focus": "Reveals her fear after finding a lump, showing new vulnerability."
+        },
+        {
+          "name": "Jim Nolan",
+          "role": "Grandpa",
+          "focus": "Provides light humor but remains emotionally supportive in the background."
+        },
+        {
+          "name": "Natalie Reynolds",
+          "role": "Andrew’s love interest (via text)",
+          "focus": "Shares her own relationship conflict, adding to Andrew’s emotional burden."
+        }
+      ]
+    },
+    "themes_conflicts": [
+      {
+        "theme": "Fear of Loss",
+        "description": "Andrew’s newfound terror at possibly losing his mother."
+      },
+      {
+        "theme": "Emotional Overload",
+        "description": "The crushing weight of supporting everyone while handling his own pain."
+      },
+      {
+        "theme": "Unspoken Feelings",
+        "description": "Tension created by Andrew’s inability to voice his deepest fears and desires."
+      },
+      {
+        "theme": "Desire for Escape",
+        "description": "Seeking solace in childhood home, only to find comfort has vanished."
+      }
+    ]
+  }
+  

@@ -1,0 +1,41 @@
+{
+  "chapter": 1,
+  "title": "Coffee Shop Confessions",
+  "timeline": "Senior Fall",
+  "main_plot_points": [
+    "Andrew and Natalie meet at campus coffee shop",
+    "Initial awkward conversation turns into deep discussion",
+    "Shared connection over family struggles",
+    "Agreement to meet again",
+    "First appearance of mysterious Anna"
+  ],
+  "character_focus": {
+    "main": {
+      "Andrew": "Struggling with mother's illness and future uncertainty",
+      "Natalie": "Dealing with family expectations and personal dreams"
+    },
+    "supporting": {
+      "Anna": "Mysterious figure who appears briefly",
+      "Jill": "Andrew's ill mother, referenced in conversation"
+    }
+  },
+  "themes": [
+    "Connection",
+    "Family",
+    "Future Uncertainty",
+    "Fate"
+  ],
+  "setting": "Campus coffee shop",
+  "key_emotions": [
+    "Nervousness",
+    "Hope",
+    "Connection",
+    "Curiosity",
+    "Relief"
+  ],
+  "future_setup": [
+    "Establishes main characters' backgrounds",
+    "Sets up the mysterious Anna subplot",
+    "Creates foundation for relationship development"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "chapter": 14,
+  "title": "The Flight",
+  "timeline": "Senior Spring - Internship Start",
+  "main_plot_points": [
+    "Andrew boards flight to Austin for internship",
+    "Anna appears with final warning about choices",
+    "Andrew receives call about Jill's critical condition",
+    "Turbulence forces emergency landing",
+    "Andrew makes the choice to return home"
+  ],
+  "character_focus": {
+    "main": {
+      "Andrew": "Faces ultimate test of priorities",
+      "Anna": "Delivers final warning about choice"
+    },
+    "supporting": {
+      "Jill": "Critical condition forces Andrew's decision",
+      "Natalie": "Unaware of pregnancy, waiting at home"
+    }
+  },
+  "themes": [
+    "Fate vs. Choice",
+    "Family First",
+    "Sacrifice",
+    "Destiny"
+  ],
+  "setting": "Airplane during flight",
+  "key_emotions": [
+    "Anxiety",
+    "Fear",
+    "Determination",
+    "Relief",
+    "Clarity"
+  ],
+  "future_setup": [
+    "Sets up the revelation of Natalie's pregnancy",
+    "Establishes Andrew's commitment to family",
+    "Leads to the final confrontation with Anna"
+  ]
+} 

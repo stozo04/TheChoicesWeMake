@@ -1,0 +1,41 @@
+{
+    "chapter": 4,
+    "title": "Anniversary Dinner",
+    "timeline": "Senior Fall - Important Moment",
+    "main_plot_points": [
+      "Andrew and Natalie share a meaningful moment",
+      "Promise to support each other's dreams",
+      "First hints of romantic feelings",
+      "Anna appears with specific warning",
+      "Jill's condition takes a turn for the worse"
+    ],
+    "character_focus": {
+      "main": {
+        "Andrew": "Balances growing feelings with family responsibilities",
+        "Natalie": "Shows commitment to supporting Andrew"
+      },
+      "supporting": {
+        "Anna": "Delivers specific warning about future",
+        "Jill": "Health crisis adds urgency to situation"
+      }
+    },
+    "themes": [
+      "Commitment",
+      "Support",
+      "Family",
+      "Growing Love"
+    ],
+    "setting": "Campus garden",
+    "key_emotions": [
+      "Commitment",
+      "Worry",
+      "Hope",
+      "Love",
+      "Fear"
+    ],
+    "future_setup": [
+      "Establishes the promise that will be tested",
+      "Sets up future conflict between love and responsibility",
+      "Deepens the mystery of Anna's warnings"
+    ]
+  } 
