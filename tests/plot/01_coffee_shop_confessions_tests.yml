@@ -1,0 +1,110 @@
+# Plot‑Driven Development test spec for Chapter 1
+# Generated on 2025-05-29
+
+tests:
+- id: ch1_protagonist_pov
+  description: Andrew is unmistakably the protagonist and point‑of‑view owner.
+  scope:
+    chapter: 1
+  must:
+  - Narration is in first‑person or close third limited to Andrew.
+  - Name “Andrew” appears ≥ 10 times.
+  - No interior thoughts of any character other than Andrew are shown.
+- id: ch1_setting_established
+  description: Brewed Awakening coffee shop is vividly established as the setting.
+  scope:
+    chapter: 1
+  must:
+  - Coffee‑shop name “Brewed Awakening” appears at least once.
+  - At least three distinct sensory details (smell, sound, temperature, texture, or
+    sight) are included.
+  - Readers can visualise the layout (tables, windows, artwork) from description.
+- id: ch1_meetcute
+  description: Andrew accidentally meets Natalie (future love interest).
+  scope:
+    chapter: 1
+  must:
+  - Encounter feels unplanned or spontaneous.
+  - Scene depicts Andrew’s nervous or startled physical reaction.
+  - At least one line of dialogue exchanged within 20 lines of the first eye‑contact.
+- id: ch1_secret_love_reveal
+  description: Andrew’s long‑held love for Natalie is revealed to the reader.
+  scope:
+    chapter: 1
+  must:
+  - Narration states that Andrew has loved Natalie for ~3 years.
+  - Andrew worries about losing the friendship if he confesses.
+  - At least one internal monologue sentence beginning with “Why” or “How many times…”
+    expressing his conflict.
+- id: ch1_external_obstacle
+  description: Chris (Natalie’s boyfriend) is introduced as a clear romantic obstacle.
+  scope:
+    chapter: 1
+  must:
+  - Name “Chris” is mentioned.
+  - Relationship length (≈ 4 years) is stated.
+  - Andrew experiences jealousy, resignation, or another negative emotion on hearing
+    Chris’s name.
+- id: ch1_relationship_doubt
+  description: Natalie briefly doubts her relationship with Chris.
+  scope:
+    chapter: 1
+  must:
+  - Natalie expresses uncertainty about whether she and Chris have grown apart.
+  - Andrew notices or reacts internally to this doubt.
+- id: ch1_theme_introductions
+  description: 'Primary themes are seeded: connection, family, future uncertainty,
+    fate.'
+  scope:
+    chapter: 1
+  must:
+  - Reference to Andrew’s family situation (e.g., mother’s illness).
+  - Reference to Natalie’s family expectations or dreams.
+  - A line reflecting on future or uncertainty.
+  - Implicit or explicit nod to fate / serendipity (e.g., autumn leaves, timing).
+- id: ch1_subplots_seeded
+  description: Subplots are foreshadowed (Anna & Jill).
+  scope:
+    chapter: 1
+  must:
+  - Name “Anna” appears at least once in a mysterious context.
+  - Name “Jill” (Andrew’s mother) appears or is referenced through dialogue or thought.
+  - Their roles remain ambiguous, provoking curiosity.
+- id: ch1_emotional_arc
+  description: 'Emotional trajectory: nervousness → connection → tension.'
+  scope:
+    chapter: 1
+  must:
+  - Opening paragraphs convey physical signs of nervousness (heart, breath, hands).
+  - Mid‑chapter shows camaraderie / warmth between Andrew & Natalie.
+  - Chapter ends with unresolved tension (confession unspoken, Natalie leaving).
+- id: ch1_word_count
+  description: Chapter length is within target range (1 800 – 3 500 words).
+  scope:
+    chapter: 1
+  must:
+  - Word count between 1800 and 3500 inclusive.
+- id: ch1_age_and_history
+  description: "Story establishes that Andrew & Natalie are college-age and have a long-standing friendship."
+  scope: { chapter: 1 }
+  must:
+    - "Context clues (e.g., campus, classes, studying, professors) imply they are in their early-20s without stating exact ages."
+    - "At least one line referencing past semesters, shared projects, or events ≥ 1 year ago to show an established history."
+    - "No contradictory cues suggesting high-school or full adult career life."
+
+- id: ch1_nicholas_sparks_style
+  description: "Prose evokes a Nicholas Sparks tone."
+  scope: { chapter: 1 }
+  must:
+    - "Language is heartfelt and reflective, favoring lyrical description over slang."
+    - "Setting and weather imagery (e.g., gentle rain, autumn sunlight) contribute to mood."
+    - "Internal monologue reveals deep emotions and themes of fate or enduring love."
+    - "LLM or human style-checker labels passage as 'Nicholas Sparks-esque.'"
+
+- id: ch1_anna_mysterious_encounter
+  description: "Andrew literally bumps into Anna, who delivers a cryptic message."
+  scope: { chapter: 1 }
+  must:
+    - "Physical collision or stumble between Andrew and a girl named 'Anna'."
+    - "Anna speaks or hands over a brief, enigmatic line or object that hints at future significance."
+    - "Scene leaves Andrew puzzled and curious (internal reaction present)."

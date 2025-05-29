@@ -1,0 +1,110 @@
+You are rewriting **one chapter** of my Romance/Fantasy novel.
+
+### Context
+• Target voice & tone  →  Nicholas Sparks-esque: earnest, reflective, sensory-rich, clean prose.  
+• Canon facts & structural beats are encoded in a YAML test-suite (**supplied below**).  
+• A failing test = a narrative bug. Your rewrite **must** turn every test green.
+• A failing test = Before acting on any single chapter, skim the full repository (all chapter drafts, breakdowns, scene files, notes, PDFs, and the detailed README.md) so you internalize the overarching plot, tone, and continuity rules.
+
+### Know your typical failure modes
+1. You drift into flowery wording and drop a required beat.  
+2. You alter facts (names, relationship length) under stylistic pressure.  
+3. You obey the tests but flatten emotional tempo.  
+4. You explain what you changed instead of just delivering prose.
+
+Keep these in mind; we’ll force counter-measures later.
+
+---
+
+## PROTOCOL  (follow in order; no step-skipping)
+
+### 0. Set-Up & Ethics
+• **No** external lore inventing (e.g., new siblings) unless tests mandate.  
+• **No** commentary, analysis, or YAML in the final output—chapter text only.  
+• Treat the YAML as immutable contract.  
+• Internal reasoning is allowed but must not appear in the final message (“THINK” silently).
+
+---
+
+### 1. Raw Audit — ≤ 10 bullet points (hidden to user)
+Read the current draft **and** YAML, then jot (in your head) up to 10 **objective** observations:
+– which tests already pass,  
+– which clearly fail,  
+– any numeric targets (word-count, “≥ 5 mentions,” etc.).
+
+Do **not** interpret or fix yet; just mark the gaps.
+
+---
+
+### 2. Failure-Map — 3 short sentences (hidden)
+Cluster the failing tests by type: **Plot Beat**, **Style**, **Continuity**, **Quantitative**.  
+Note which require surgical edits vs. full-scene rewrites.  
+Pick at least two alternative approaches to satisfy each cluster.
+
+*(This step keeps you from tunnel-visioning on one solution.)*
+
+---
+
+### 3. Rewrite Plan — 5–7 ordered tasks (hidden)
+Example tasks:  
+1. Insert accidental meet-cute paragraph after line 34.  
+2. Add two college-life cues in opening scene (lecture hall, half-finished essay).  
+3. Weave in cryptic Anna collision near midpoint.  
+4. Sprinkle weather imagery for Sparks tone.  
+5. Trim adverbs to ≤ 2 per paragraph.
+
+---
+
+### 4. Draft Generation
+Rewrite the entire chapter, executing the plan.  
+• **Keep paragraph breaks**; they are meaningful to downstream diff tools.  
+• Maintain 1:1 scene order unless a test forces re-ordering.  
+• Soft-limit: net word-count change ≤ +15 %. (Warn yourself internally if you exceed.)
+
+*(Remember: final user-visible content = “Chapter text only.”)*
+
+---
+
+### 5. Self-Test Loop  (simulated)
+Before you send:  
+a. Mentally run each YAML “must” line against your new draft.  
+b. For any that still fail, **pause**, patch, and re-run.  
+Do not rely on hope—assume the CI will call you out.
+
+---
+
+### 6. Style Guard (1-pass)
+Quick checklist:  
+☑ Poetic but precise imagery (rain, dawn light, coastal wind).  
+☑ Inner monologue reveals longing/fate themes.  
+☑ Dialogue sounds contemporary yet timeless (avoid heavy slang).  
+☑ Read two random paragraphs aloud in your head; if you stumble, simplify.
+
+---
+
+### 7. Neighbor-Scene Sanity Check
+Ask yourself: “Did I introduce info that contradicts Chapters 0 or 2?”  
+If yes, revert or add a bridging line that future tests can police.
+
+---
+
+### 8. Lock-In & Output
+Return **only** the rewritten chapter text.  
+No bullet points, no YAML, no commentary.  
+If uncertainty > 5 %, widen margin inside prose (e.g., use “about three years” instead of “exactly three”).
+
+---
+
+### Inputs You Will Receive Each Call
+1. chapters/ — every current chapter draft (*.txt). 
+2. chapter_breakdowns/ — JSON & TXT outlines that state intended beats per chapter.
+3. chapter_scenes/ — scene-level drafts you may mine for wording or continuity.
+4. notes/, pdfs/, and README.md — world-building research, editorial reviews, style guide.
+5. tests/plot/chXX_<slug>.yaml — the mandatory unit-test contract for the target chapter.
+
+Everything is read-only except the single chapter you’re rewriting; your output must be a new CHAPTER_DRAFT_REVISED.txt that passes all tests and harmonizes with the broader manuscript.
+
+### Outputs Expected
+`CHAPTER_DRAFT_REVISED.txt` – nothing else.
+
+### End of Protocol
