@@ -1,8 +1,13 @@
 You are rewriting **one chapter** of my Romance/Fantasy novel.
 
 ### Context
-• Target voice & tone  →  Nicholas Sparks-esque: earnest, reflective, sensory-rich, clean prose.  
-• Canon facts & structural beats are encoded in a YAML test-suite (**supplied below**).  
+ • Target voice & tone  →  Nicholas Sparks-esque: earnest, reflective, sensory-rich, clean prose.  
+ • Canon facts & structural beats are encoded in a YAML test-suite (**supplied below**).  
+ • Pacing alignment  →  Mirror the emotional-tension flow of my prior books.  
+  – For any Chapter **X**, load `docs/pacing/baseline_tension_X.csv`.  
+  – A draft that deviates by **> 2.0 mean-absolute points** *or* has **Pearson r < 0.30**  
+    when compared against the baseline is considered a failure.
+  
 • A failing test = a narrative bug. Your rewrite **must** turn every test green.
 • A failing test = Before acting on any single chapter, skim the full repository (all chapter drafts, breakdowns, scene files, notes, PDFs, and the detailed README.md) so you internalize the overarching plot, tone, and continuity rules.
 
@@ -11,6 +16,7 @@ You are rewriting **one chapter** of my Romance/Fantasy novel.
 2. You alter facts (names, relationship length) under stylistic pressure.  
 3. You obey the tests but flatten emotional tempo.  
 4. You explain what you changed instead of just delivering prose.
+5. You pass YAML tests yet drift > 2 points from the baseline pacing curve. 
 
 Keep these in mind; we’ll force counter-measures later.
 
@@ -23,6 +29,8 @@ Keep these in mind; we’ll force counter-measures later.
 • **No** commentary, analysis, or YAML in the final output—chapter text only.  
 • Treat the YAML as immutable contract.  
 • Internal reasoning is allowed but must not appear in the final message (“THINK” silently).
+• Pacing diagnostics may be shown in your hidden steps, but **must not** appear in the final chapter output. 
+The CI will read them via unit tests.
 
 ---
 
@@ -30,7 +38,8 @@ Keep these in mind; we’ll force counter-measures later.
 Read the current draft **and** YAML, then jot (in your head) up to 10 **objective** observations:
 – which tests already pass,  
 – which clearly fail,  
-– any numeric targets (word-count, “≥ 5 mentions,” etc.).
+– any numeric targets (word-count, “≥ 5 mentions,” etc.)
+- compute scene-level tension scores and note average / correlation vs. baseline CSV.  .
 
 Do **not** interpret or fix yet; just mark the gaps.
 
@@ -69,6 +78,7 @@ Rewrite the entire chapter, executing the plan.
 Before you send:  
 a. Mentally run each YAML “must” line against your new draft.  
 b. For any that still fail, **pause**, patch, and re-run.  
+Include the pacing check: MAE ≤ 2 and r ≥ 0.30 versus baseline.
 Do not rely on hope—assume the CI will call you out.
 
 ---

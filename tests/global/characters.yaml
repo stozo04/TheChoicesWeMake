@@ -1,0 +1,204 @@
+# tests/global/characters.yaml
+tests:
+  # ─────────────────── NATALIE ───────────────────
+  - id: natalie_appearance_positive
+    description: "Natalie is always depicted with long wavy blonde hair and bright blue eyes."
+    scope: manuscript
+    must:
+      - "Every first physical description of Natalie in a chapter includes 'blonde' AND 'blue' (case-insensitive)."
+      - "If hair texture is mentioned it is 'wavy' or synonym ('loose curls', 'soft waves')."
+
+  - id: natalie_appearance_negative
+    description: "No contradictory hair or eye colours for Natalie."
+    scope: manuscript
+    must_not:
+      - "(?i)natalie.*(black|brown|red|auburn).*hair"
+      - "(?i)natalie.*(green|hazel|brown|grey).*eyes"
+
+  - id: natalie_academics
+    description: "Natalie's academic path is consistent."
+    scope: manuscript
+    must:
+      - "(?i)(senior|final[- ]year).*college"
+      - "(?i)nursing school"
+      - "(?i)dream.*(OBGYN|deliver(ing)? babies?)"
+
+  - id: natalie_personality_tone
+    description: "Natalie's dialogue and narration stay 'outgoing & fun' (Alexis-Rose vibe)."
+    scope: manuscript
+    must_semantic:
+      prompt: |
+        Does the passage's portrayal of Natalie match an outgoing, fun-loving personality similar to Alexis Rose from *Schitt's Creek*?
+      threshold: 0.8   # (LLM returns score 0-1)
+
+  - id: natalie_favorite_coffee
+    description: "Whenever Natalie orders coffee, it is a chai latte."
+    scope: manuscript
+    must:
+      - "(?i)natalie[^\\n]{0,80}(orders|gets|drinks).*chai latte"
+
+  - id: natalie_brother_reference
+    description: "Natalie occasionally references or interacts with her younger brother Jake."
+    scope: manuscript
+    must:
+      - "(?i)\bJake\b.*(brother|sibling)"
+
+# ─────────────────── NATALIE’S FAMILY ───────────────────
+
+  - id: natalie_family_roster_positive
+    description: "Natalie’s canonical family members (Jake, Elizabeth, Michael) appear in the manuscript."
+    scope: manuscript
+    must:
+      - "(?i)Jake Alexander"
+      - "(?i)Elizabeth Alexander"
+      - "(?i)Michael Alexander"
+
+  - id: natalie_family_roster_negative
+    description: "No surprise siblings or conflicting parental names for Natalie."
+    scope: manuscript
+    must_not:
+      - "(?i)Natalie.*(older|younger).*sister"
+      - "(?i)Natalie.*(stepfather|stepmother)"
+
+  - id: natalie_pov_alignment
+    description: "Natalie refers to Jake as brother and parents as Mom/Dad consistently; Jake calls her sister Nat."
+    scope: manuscript
+    must:
+      - "(?i)my brother Jake"
+      - "(?i)(Mom|Dad) (Elizabeth|Michael)"
+      - "(?i)sister Natalie"
+
+  # ─────────────────── ANDREW ───────────────────
+
+  - id: andrew_appearance_positive
+    description: "Andrew is always short-haired, brown-haired, hazel-eyed."
+    scope: manuscript
+    must:
+      - "(?i)(short|cropped).*brown.*hair"
+      - "(?i)hazel.*eyes"
+
+  - id: andrew_appearance_negative
+    description: "No conflicting descriptors for Andrew's hair/eye colour."
+    scope: manuscript
+    must_not:
+      - "(?i)andrew.*(blonde|black|red).*hair"
+      - "(?i)andrew.*(blue|green|brown).*eyes(?!.*hazel)"
+
+  - id: andrew_academics
+    description: "Andrew's degree path is consistent (senior CS major)."
+    scope: manuscript
+    must:
+      - "(?i)(senior|final[- ]year).*college"
+      - "(?i)(computer science|comp sci|CS) (major|student)"
+
+  - id: andrew_favorite_coffee
+    description: "Andrew's go-to coffee is a caramel latte with extra whip."
+    scope: manuscript
+    must:
+      - "(?i)andrew[^\\n]{0,80}(orders|gets|drinks).*caramel latte.*extra (whip|whipped cream)"
+
+  - id: andrew_family_roster_positive
+    description: "Andrew's core family members (Jill, Jim, Sarah) are each referenced at least once somewhere in the manuscript—ensuring they exist in‑world."
+    scope: manuscript
+    must:
+      - "(?i)Jill\\s+Nolan"      # mother
+      - "(?i)Jim\\s+Nolan"       # grandfather
+      - "(?i)Sarah\\s+Nolan"     # grandmother (introduced in latest outline)
+
+  - id: andrew_family_roster_negative
+    description: "No surprise immediate relatives are invented for Andrew (e.g., extra parents or siblings)."
+    scope: manuscript
+    must_not:
+      - "(?i)Andrew[^\n]{0,120}(sister|brother|siblings|stepbrother|stepsister)"
+      - "(?i)Andrew[^\n]{0,120}\bfather\b(?![^\n]{0,80}passed away)"  # father only mentioned as deceased
+  
+ # ─────────────────── ANDREW'S POV RELATION NAMES ───────────────────
+
+  - id: jim_pov_grandson_consistency
+    description: "Whenever Grandpa Jim narrates or is the POV focus, he refers to Andrew as his grandson, not by other kin terms."
+    scope: manuscript
+    must:
+      - "(?i)\b(grandson|grand‑son)\b[^\n]{0,60}Andrew"
+
+  - id: jim_pov_son_consistency
+    description: "Jim should not call Andrew 'son'."
+    scope: manuscript
+    must_not:
+      - "(?i)\bson\b[^\n]{0,60}Andrew"
+
+  - id: jill_pov_son_consistency
+    description: "Jill refers to Andrew as her son (never grandson, nephew, etc.)."
+    scope: manuscript
+    must:
+      - "(?i)\bson\b[^\n]{0,60}Andrew"
+
+  - id: jill_pov_nephew_consistency
+    description: "Jill should not call Andrew 'nephew'."
+    scope: manuscript
+    must_not:
+      - "(?i)\bgrandson|nephew\b[^\n]{0,60}Andrew"
+      - "(?i)\bgrandson|nephew\b[^\n]{0,60}Andrew"
+
+  - id: andrew_reciprocal_reference
+    description: "When Andrew mentions his grandfather or mother, the correct kin terms are used."
+    scope: manuscript
+    must:
+      - "(?i)Andrew[^\n]{0,120}(mom|mother)\\s+Jill"
+      - "(?i)Andrew[^\n]{0,120}(grandpa|grandfather)\\s+Jim"
+
+# ─────────────────── CHRIS ───────────────────
+
+  - id: chris_appearance_positive
+    description: "Chris is tall, athletic, short blonde hair, blue eyes."
+    scope: manuscript
+    must:
+      - "(?i)(tall|athletic).*blonde.*hair"
+      - "(?i)blue.*eyes"
+
+  - id: chris_carefree_trait
+    description: "Chris is portrayed with a laid‑back, fun‑loving attitude (semantic check)."
+    scope: manuscript
+    must_semantic:
+      prompt: |
+        Does the passage portray Chris as carefree, laid‑back, or fun‑loving rather than serious or career‑driven?
+      threshold: 0.8
+
+# ─────────────────── ANNA ───────────────────
+
+  - id: anna_appearance_positive
+    description: "Anna resembles Natalie but with dark hair and green eyes."
+    scope: manuscript
+    must:
+      - "(?i)dark.*hair"
+      - "(?i)green.*eyes"
+      - "(?i)\bAnna\b"
+
+  - id: anna_mysterious_tone
+    description: "Anna's dialogue remains cryptic or prophetic."
+    scope: manuscript
+    must_semantic:
+      prompt: |
+        Does Anna's speech or narration sound cryptic, prophetic, or warning in tone?
+      threshold: 0.8
+
+# ─────────────────── SUPPORTING FAMILY ───────────────────
+
+  - id: jill_cancer_arc
+    description: "Jill's cancer battle is mentioned in at least one scene per act to maintain narrative heartbeat."
+    scope: manuscript
+    must:
+      - "(?i)Jill.*(cancer|chemotherapy|treatment|hospital)"
+
+  - id: jim_one_liner
+    description: "Grandpa Jim delivers a wisdom quote or one‑liner every three chapters."
+    scope: manuscript
+    must_semantic:
+      prompt: |
+        Does the passage include a line of dialogue from Jim that reads as a concise life lesson or humorous wisdom?
+      threshold: 0.75
+
+  - id: sarah_roommate_reference
+    description: "Sarah appears or is referenced as Natalie's roommate/confidante at least once per act."
+    scope: manuscript
+    must:
+      - "(?i)\bSarah\b.*(roommate|room‑mate|friend|confidante)"

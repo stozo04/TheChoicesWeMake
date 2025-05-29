@@ -108,3 +108,12 @@ tests:
     - "Physical collision or stumble between Andrew and a girl named 'Anna'."
     - "Anna speaks or hands over a brief, enigmatic line or object that hints at future significance."
     - "Scene leaves Andrew puzzled and curious (internal reaction present)."
+
+- id: ch1_grandma_loss_consistency
+  description: "Chapter 1 references the correct family loss timeline: Grandma Sarah (not Jill) passed away, and Natalie comforted Andrew during that time."
+  scope: { chapter: 1 }
+  must: 
+    - "(?i)(grandma|grandmother|Sarah Nolan).* (passed away|died|lost her battle)"
+    - "Natalie.*(comforted|consoled|supported) Andrew"
+  must_not:
+    - "(?i)(mother|mom|mum|ma|Jill|father|dad|parents?|grandpa|grandfather|Jim|sister|brother|Jake).*?(passed away|died|lost (his|her) battle)"

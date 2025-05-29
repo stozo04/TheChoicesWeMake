@@ -14,9 +14,13 @@ A novel project exploring the intricate relationships between characters and the
 📂 images/ – Mermaid diagram and Visual assets and references for the project  
 📂 pdfs/ – Comprehensive compiled feedback from AI analysis in PDF format  
 📂 AI_feedback/ – raw transcripts and outputs from AI (ChatGPT) reviews of the chapters, used for deep analysis and editing feedback
+📂 previous_books/ – collection of three previously written books in PDF format
 📂 tests/ – automated Plot-Driven Development specs  
     └── plot/ – one YAML file per chapter (`chXX_<slug>_tests.yaml`) that encodes unit-style tests for required beats, style, and continuity
-
+    └── global/  cross-chapter invariants
+         └── characters.yaml
+📂 scripts – helper automation (e.g., YAML test runner)  
+    └── `verify_chapter.py` – run tests against one or more chapters 
 
 ## File Organization
 
@@ -36,8 +40,9 @@ Each chapter is organized across multiple files to maintain a clear structure:
 3. Refer to `chapter_scenes/` for detailed setting descriptions
 4. Check `notes/` for character development and thematic elements
 5. Review the `timeline/directory` for chronological events
-6. Run `pytest tests/plot/` to verify any chapter revision still passes all narrative unit tests
-7. (Optional) Examine `AI_feedback/` for insight into previous analyses of the text, and see `pdfs/` for compiled reports
+6. Run `pytest tests/plot/` to verify any chapter revision still passes all narrative unit tests  
+7. Use `python scripts/verify_chapter.py <chapter-file> --chapter-only` for a quick local check of just the chapter you're editing  
+8. (Optional) Examine `AI_feedback/` for insight into previous analyses of the text, and see `pdfs/` for compiled reports
 
 ## Characters At a Glance
 
