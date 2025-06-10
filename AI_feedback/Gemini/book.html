@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novel Structure: Full Circle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .tab-active {
+        border-bottom: 2px solid #c2410c;
+        color: #c2410c;
+        font-weight: 600;
+      }
+      .tab-inactive {
+        color: #6b7280;
+      }
+      .act-header {
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .chapter-card {
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+      }
+      .chapter-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+      /* Modal Styles */
+      #modal-backdrop.hidden {
+        display: none;
+      }
+      #modal-panel.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+      <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-900">Novel Story Canvas</h1>
+        <p class="text-lg text-gray-600 mt-2">
+          Visualizing the Narrative of "Full Circle"
+        </p>
+      </header>
+
+      <!-- Tabs -->
+      <div class="mb-8 border-b border-gray-200">
+        <nav class="flex space-x-6" aria-label="Tabs">
+          <button
+            id="tab-outline"
+            class="tab-active py-4 px-1 text-base font-medium"
+            onclick="showView('outline')"
+          >
+            Chapter Outline
+          </button>
+          <button
+            id="tab-diagram"
+            class="tab-inactive py-4 px-1 text-base font-medium"
+            onclick="showView('diagram')"
+          >
+            Plot Flow Diagram
+          </button>
+          <button
+            id="tab-action"
+            class="tab-inactive py-4 px-1 text-base font-medium"
+            onclick="showView('action')"
+          >
+            Action Plan
+          </button>
+          <button
+            id="tab-rewrite"
+            class="tab-inactive py-4 px-1 text-base font-medium"
+            onclick="showView('rewrite')"
+          >
+            Rewrite Showcase
+          </button>
+        </nav>
+      </div>
+
+      <!-- Chapter Outline View -->
+      <div id="view-outline">
+        <div id="act1-container"></div>
+        <div id="act2-container"></div>
+        <div id="act3-container"></div>
+      </div>
+
+      <!-- Mermaid Diagram View -->
+      <div id="view-diagram" class="hidden">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <pre class="mermaid" id="mermaid-chart">
+                graph TD
+                    subgraph Act I: The Foundation
+                        A1["Ch 1: Coffee Shop Confessions ☕️<br>Andrew tries to confess but is interrupted by a call from Natalie's boyfriend, Chris."] --> A2;
+                        A2["Ch 2: The Internal Retreat & Anna's Prophecy<br>Andrew hesitates to confess. The mysterious Anna appears, warning him of a 'split path.'"] --> A3;
+                        A3["Ch 3: Shadows of the Past<br>Andrew goes home and learns his mother, Jill, has a health scare."] --> A4;
+                        A4["Ch 4: The Anniversary Dinner<br>Natalie ends her four-year relationship with Chris."] --> A5;
+                        A5["Ch 5: Confessions & Comfort<br>Andrew and Natalie comfort each other, their bond deepening amidst shared crises."] --> A6;
+                        A6["Ch 6: Deadlines & Doubts<br>Andrew, overwhelmed by a project, angrily dismisses another cryptic warning from Anna."]
+                    end
+
+                    subgraph Act II: The Transformation
+                        A6 --> B1["Ch 7: The Art Walk<br>Andrew learns his mother's cancer is confirmed. They share a romantic moment on a bridge marked 'A&N'."] --> B2;
+                        B2["Ch 8: The Birthday Promise<br>On Andrew's 21st birthday, they act on their feelings and buy a lottery ticket on a whim."] --> B3;
+                        B3["Ch 9: The Morning After<br>They establish their new reality as a couple in the quiet afterglow."] --> B4;
+                        B4["Ch 10: Shadows of a Stranger<br>Natalie sees Andrew with Anna and retreats, allowing doubt to grow."] --> B5;
+                        B5["Ch 11: Bridges Burned & Built<br>They confront the misunderstanding, choosing to trust each other."] --> B6;
+                        B6["Ch 12: The Positive Test<br>Natalie discovers she is pregnant with Andrew's child."] --> B7;
+                        B7["Ch 13: The Bridge on the Highway (Midpoint)<br>Andrew skips his internship trip, narrowly avoiding a fatal bridge collapse."] --> B8;
+                        B8["Ch 14: Truths Revealed<br>Natalie reveals her pregnancy to a joyous Andrew."] --> B9;
+                        B9["Ch 15: The Unspoken Weight<br>The joy of pregnancy is contrasted with the sorrow of Jill's worsening illness."] --> B10;
+                        B10["Ch 16: Loss and Legacy<br>Jill passes away. Andrew finds her journal, inspiring a new purpose."] --> B11;
+                        B11["Ch 17: The Winning Ticket<br>Andrew discovers his lottery ticket is the jackpot winner. Anna appears, terrified."] --> B12;
+                        B12["Ch 18: The Weight of a Wager (Dark Night)<br>Torn between need and legacy, Andrew decides to donate the winnings."]
+                    end
+
+                    subgraph Act III: The Circle
+                        B12 --> C1["Ch 19: Graduation Day<br>Andrew and a pregnant Natalie graduate. Anna validated his choice."] --> C2;
+                        C2["Ch 20: New Beginnings<br>They marry and realize their initials spell 'ANNA', naming their daughter accordingly."] --> C3;
+                        C3["Ch 21: Full Circle<br>Years later, Dr. Anna Nolan reveals she was the time-traveling guide who saved his life."] --> C4;
+                        C4["Ch 22: Epilogue: The Garden<br>Anna, pregnant herself, reflects on her family's legacy, bringing the story full circle."]
+                    end
+                </pre>
+        </div>
+      </div>
+
+      <!-- Action Plan View -->
+      <div id="view-action" class="hidden">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Action Plan</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Enhance Anna's Interventions -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-orange-800">Enhance Anna's Interventions</h3>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Hard</span>
+              </div>
+              <p class="text-gray-600 mb-4">Increase the impact and believability of Anna's role and the choice/destiny theme.</p>
+              <div class="space-y-2">
+                <h4 class="font-medium text-gray-700">Steps:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Review all scenes with Anna. Introduce subtle, unique sensory cues (a specific scent, a shift in light) that precede her arrival to make her presence more integrated.</li>
+                  <li>Vary the phrasing and emotional tone of her warnings. Each message should feel distinct and escalate the stakes.</li>
+                  <li>Reinforce Andrew's agency. Show his choices as deliberate acts driven by his character, even when guided by Anna.</li>
+                </ul>
+              </div>
+              <div class="mt-4">
+                <h4 class="font-medium text-gray-700">Chapters:</h4>
+                <p class="text-gray-600">02, 06, 10, 13, 16, 18, 20</p>
+              </div>
+            </div>
+
+            <!-- Refine Early Romantic Conflict Pacing -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-orange-800">Refine Early Romantic Conflict Pacing</h3>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Medium</span>
+              </div>
+              <p class="text-gray-600 mb-4">Adjust the 'will they/won't they' dynamic to maintain reader engagement.</p>
+              <div class="space-y-2">
+                <h4 class="font-medium text-gray-700">Steps:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Review early 'almost confession' scenes.</li>
+                  <li>Ensure each interrupted moment introduces a new layer of conflict or character insight, making the delay feel meaningful.</li>
+                  <li>Consider slightly reducing the number of external interruptions, letting Andrew's internal hesitation play a larger role.</li>
+                </ul>
+              </div>
+              <div class="mt-4">
+                <h4 class="font-medium text-gray-700">Chapters:</h4>
+                <p class="text-gray-600">01, 02, 05, 07, 08</p>
+              </div>
+            </div>
+
+            <!-- Strengthen Pregnancy Concealment -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-orange-800">Strengthen Pregnancy Concealment</h3>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Medium</span>
+              </div>
+              <p class="text-gray-600 mb-4">Make Andrew's obliviousness more sympathetic and Natalie's actions more deliberate.</p>
+              <div class="space-y-2">
+                <h4 class="font-medium text-gray-700">Steps:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Reduce instances where Andrew is simply 'too distracted to notice' Natalie's symptoms.</li>
+                  <li>Emphasize Andrew's overwhelming external stressors (mother's illness, internship) as the primary reason for his distraction.</li>
+                  <li>Show Natalie actively trying to conceal her symptoms more effectively.</li>
+                </ul>
+              </div>
+              <div class="mt-4">
+                <h4 class="font-medium text-gray-700">Chapters:</h4>
+                <p class="text-gray-600">11, 12, 13, 14</p>
+              </div>
+            </div>
+
+            <!-- Enhance Prose Style -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-orange-800">Enhance Prose Style</h3>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Easy</span>
+              </div>
+              <p class="text-gray-600 mb-4">Reduce repetitive phrasing and vary expressions of intense emotion.</p>
+              <div class="space-y-2">
+                <h4 class="font-medium text-gray-700">Steps:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Search for and rephrase repeated phrases like 'The choices you make...' and 'too small, too large...'.</li>
+                  <li>Use synonyms, different sentence structures, or alternative descriptions to maintain impact without repetition.</li>
+                  <li>Explore more varied ways for Anna to convey urgency in her warnings.</li>
+                </ul>
+              </div>
+              <div class="mt-4">
+                <h4 class="font-medium text-gray-700">Chapters:</h4>
+                <p class="text-gray-600">All chapters, esp. 12 & 13</p>
+              </div>
+            </div>
+
+            <!-- Deepen Character Agency -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-orange-800">Deepen Character Agency</h3>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Medium</span>
+              </div>
+              <p class="text-gray-600 mb-4">Bolster Andrew's early romantic initiative and provide closure for Chris's arc.</p>
+              <div class="space-y-2">
+                <h4 class="font-medium text-gray-700">Steps:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>In early chapters, show Andrew attempting small, non-verbal romantic gestures or having more intense internal debates about confessing.</li>
+                  <li>Add a brief, later reflection from Natalie or Andrew on Chris's well-being after the breakup for closure.</li>
+                </ul>
+              </div>
+              <div class="mt-4">
+                <h4 class="font-medium text-gray-700">Chapters:</h4>
+                <p class="text-gray-600">01, 02, 05, 09</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rewrite Showcase View -->
+      <div id="view-rewrite" class="hidden">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Rewrite Showcase</h2>
+          <div class="space-y-8">
+            <!-- First Rewrite Example -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <h3 class="text-xl font-semibold text-orange-800 mb-2">Enhance Andrew's perception and Natalie's active concealment regarding the pregnancy</h3>
+              <p class="text-sm text-gray-600 mb-4">File: chapters/14_the_flight_that_never_was.txt</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-medium text-red-700 mb-2">Before</h4>
+                  <div class="bg-white p-4 rounded-md border border-red-200 text-red-900 whitespace-pre-wrap">"But the internship..." she whispered, one hand unconsciously moving to her stomach - a gesture he still didn't quite register.
+"Andrew, this was your dream."</div>
+                </div>
+                <div>
+                  <h4 class="font-medium text-green-700 mb-2">After</h4>
+                  <div class="bg-white p-4 rounded-md border border-green-200 text-green-900 whitespace-pre-wrap">"But the internship..." she whispered, her voice catching. Her hand, almost imperceptibly, brushed her stomach, a fleeting, protective gesture hidden beneath the loose fabric of her dress. Andrew, consumed by the enormity of his decision and the storm outside, only registered her words, not the silent language of her touch.
+"Andrew, this was your dream."</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Second Rewrite Example -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <h3 class="text-xl font-semibold text-orange-800 mb-2">Refine the pacing of the early romantic conflict to maintain reader engagement</h3>
+              <p class="text-sm text-gray-600 mb-4">File: chapters/07_the_art_walk.txt</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-medium text-red-700 mb-2">Before</h4>
+                  <div class="bg-white p-4 rounded-md border border-red-200 text-red-900 whitespace-pre-wrap">"Natalie, I..." he began, his voice thick with a longing he could no longer suppress.
+She held his gaze, her eyes reflecting the warm glow of the lanterns, a silent invitation. "Yes?" she prompted gently, her breath soft against his lips.
+He hesitated... "I'm just... grateful to have you in my life," he finally managed...</div>
+                </div>
+                <div>
+                  <h4 class="font-medium text-green-700 mb-2">After</h4>
+                  <div class="bg-white p-4 rounded-md border border-green-200 text-green-900 whitespace-pre-wrap">"Natalie, I..." he began, his voice thick with a longing he could no longer suppress.
+She held his gaze, her eyes reflecting the warm glow of the lanterns, a silent invitation. "Yes?" she prompted gently, her breath soft against his lips.
+He hesitated... His hand, as if with a will of its own, reached for hers, intertwining their fingers.
+"I'm just... grateful to have you in my life," he finally managed, the words a pale shadow of what he truly felt, but a start.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Third Rewrite Example -->
+            <div class="bg-orange-50 p-6 rounded-lg border border-orange-100">
+              <h3 class="text-xl font-semibold text-orange-800 mb-2">Enhance prose style by reducing repetitive phrasing</h3>
+              <p class="text-sm text-gray-600 mb-4">File: chapters/12_natalie_pregnancy_reveal.txt</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-medium text-red-700 mb-2">Before</h4>
+                  <div class="bg-white p-4 rounded-md border border-red-200 text-red-900 whitespace-pre-wrap">The classroom suddenly felt too small, too warm, too everything.
+Professor Chen's voice morphed into a distant hum as blood rushed in her ears.</div>
+                </div>
+                <div>
+                  <h4 class="font-medium text-green-700 mb-2">After</h4>
+                  <div class="bg-white p-4 rounded-md border border-green-200 text-green-900 whitespace-pre-wrap">The classroom suddenly felt stifling, the air thick and heavy. Professor Chen's voice morphed into a distant hum as blood rushed in her ears, a frantic drumbeat against her temples.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Chapter Details -->
+    <div
+      id="modal-container"
+      class="relative z-10 hidden"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        id="modal-backdrop"
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      ></div>
+      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+        >
+          <div
+            id="modal-panel"
+            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl"
+          >
+            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div
+                  class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full"
+                >
+                  <div class="flex justify-between items-center">
+                    <h3
+                      class="text-2xl font-semibold leading-6 text-gray-900"
+                      id="modal-title"
+                    >
+                      Chapter Title
+                    </h3>
+                    <button
+                      type="button"
+                      class="text-gray-400 hover:text-gray-600"
+                      onclick="hideChapterDetails()"
+                    >
+                      <span class="sr-only">Close</span>
+                      <svg
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="modal-body" class="mt-4 space-y-4 text-gray-600">
+                    <!-- Detailed breakdown will be injected here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const storyData = {
+        act1: {
+          title: "Act I: The Foundation",
+          description:
+            "Establishing the romance, core conflicts, and the central mysteries.",
+          chapters: [
+            {
+              id: 1,
+              title: "Coffee Shop Confessions",
+              summary:
+                "Andrew's confession is thwarted by Natalie's existing relationship.",
+              details: `<h4>Core Function:</h4><p>To establish the central romance, Andrew's long-held secret love, his internal conflict, and the primary external obstacle (Natalie's relationship with Chris).</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie.</p>
+
+                <h4>Setting:</h4>
+                <p>Brewed Awakening coffee shop.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew enters the café, determined to confess his feelings. The setting is established as a nostalgic "scrapbook" of their friendship.</p>
+                <p><strong>Rising Action:</strong> He sees Natalie, who he feels an "unrelenting love for". She has already bought him his favorite drink, showcasing their deep, comfortable intimacy.</p>
+                <p><strong>Climax:</strong> Andrew begins his confession ("Natalie, I—") but is immediately cut off by her phone buzzing—it's her boyfriend, Chris.</p>
+                <p><strong>Ending:</strong> After a brief, tense discussion about her relationship and another interruption, Natalie leaves. Andrew is left alone, the confession failing before it could truly begin.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Andrew moves from nervous anticipation to deep affection, which then crashes into frustration and disappointment.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>Andrew's internal fear of rejection versus his desire to confess.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>The Caramel Latte:</strong> Symbolizes Natalie's intimate knowledge of and care for Andrew.</p>
+                <p><strong>Natalie's Doubt:</strong> Her line, "Sometimes I wonder if we're still the same people we were when we started dating," foreshadows the eventual breakup with Chris.</p>`,
+                            },
+                            {
+                            id: 2,
+                            title: "Unspoken Truths",
+                            summary:
+                                "Andrew's own empathy stops his confession, and a mysterious stranger delivers a prophecy.",
+                            details: `<h4>Core Function:</h4><p>To heighten the stakes through a character-driven failure (not an external one), thereby deepening Andrew's internal conflict and introducing the story's supernatural guide, Anna.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>The campus park, specifically their carved bench.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew waits anxiously for Natalie, reflecting on the "important" text he sent and the pen she borrowed years ago that he still keeps as a keepsake.</p>
+                <p><strong>Rising Action:</strong> They meet and walk to their bench, a "sanctuary" marked with their carved initials, "A+N". The atmosphere is intimate and perfect for a confession.</p>
+                <p><strong>Climax (The Internal Retreat):</strong> Andrew opens his mouth to confess but sees the stress on Natalie's face regarding her anniversary dinner. In a moment of empathy, he realizes he cannot burden her. He makes the conscious choice to pull back, changing his confession into a simple, platonic wish for her to have a good night.</p>
+                <p><strong>Ending:</strong> As Natalie leaves, Chris's call comes through, acting as a painful punctuation on Andrew's missed opportunity. Left alone and filled with regret, he is approached by the mysterious Anna, who delivers her prophecy about the "road splitting" and a choice that will "change everything". He returns to his dorm, unsettled, and decides to go home.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Anxiety -> Intimacy -> Empathetic Sacrifice -> Regret -> Profound Confusion & Fear.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>Andrew's internal conflict between his desire and his selfless love for Natalie.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>The "A+N" Bench:</strong> A physical symbol of their bond and the stage for their emotional turning points.</p>
+                <p><strong>Anna's Prophecy:</strong> Directly foreshadows the life-altering choice Andrew will soon have to make.</p>`,
+                            },
+                            {
+                            id: 3,
+                            title: "Shadows of the Past",
+                            summary:
+                                "Returning home, Andrew is confronted with family history and his mother's health crisis.",
+                            details: `<h4>Core Function:</h4><p>To introduce the high-stakes family drama (Jill's illness), providing a deeper motivation for Andrew's future actions and grounding his personal anxieties in a real-world crisis.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Jill (Mother), Jim (Grandfather).</p>
+
+                <h4>Setting:</h4>
+                <p>Andrew's childhood home.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew arrives home and is immediately struck by a sense of unease; his mother appears "fragile" and "jarringly changed".</p>
+                <p><strong>Rising Action:</strong> While looking at family photos, his grandfather tells him about his own father's struggles, creating a theme of family legacy and loss.</p>
+                <p><strong>Climax:</strong> After a tense family dinner, Andrew confronts his mother. She breaks down and reveals they found a lump and are awaiting test results.</p>
+                <p><strong>Ending:</strong> Andrew lies in his childhood bed, reeling from the news. He then gets a text from Natalie about her fight with Chris, leaving him crushed under the weight of both crises.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Nostalgia -> Mounting Dread -> Shock -> Helplessness.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The slow, painful reveal of Jill's illness.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>Father's Photo:</strong> Symbolizes Andrew's fear of failure and his desire to be a better man.</p>
+                <p><strong>Jill's Tremor:</strong> A physical sign that foreshadows the devastating health news.</p>`,
+                            },
+                            {
+                            id: 4,
+                            title: "The Anniversary Dinner",
+                            summary:
+                                "Natalie finds the courage to end her long-term relationship, choosing an uncertain future.",
+                            details: `<h4>Core Function:</h4><p>To resolve Natalie's primary external conflict by ending her relationship with Chris, thus freeing her to honestly explore her connection with Andrew.</p>
+
+                <h4>Characters:</h4>
+                <p>Natalie, Chris.</p>
+
+                <h4>Setting:</h4>
+                <p>Vittorio's Restaurant; Natalie and Chris's shared apartment.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie feels disconnected and trapped during what should be a celebratory anniversary dinner.</p>
+                <p><strong>Rising Action:</strong> At the restaurant, Natalie finally voices her desire for a different future, which Chris interprets as a rejection of their entire history.</p>
+                <p><strong>Climax:</strong> The argument explodes in their apartment. Chris confronts her directly about Andrew: "are you in love with him?". Her silence is her confession. Chris leaves, ending their four-year relationship.</p>
+                <p><strong>Ending:</strong> Alone and emotionally exhausted, Natalie texts Andrew for support but ultimately decides to process the breakup on her own. As she falls asleep, she feels a flicker of hope for a new beginning.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Resignation -> Courage -> Painful Honesty -> Sad Relief -> Hope.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The inevitable and emotionally charged confrontation between Natalie and Chris.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>The Promise Ring:</strong> Natalie's constant fidgeting with the ring symbolizes her discomfort and the eventual breaking of that promise.</p>`,
+                            },
+                            {
+                            id: 5,
+                            title: "Confessions & Comfort",
+                            summary:
+                                "Shared vulnerability deepens their bond, but romance remains just out of reach.",
+                            details: `<h4>Core Function:</h4><p>To deepen the bond between Andrew and Natalie through mutual vulnerability, allowing their relationship to transition from friendship to the brink of romance.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie.</p>
+
+                <h4>Setting:</h4>
+                <p>Natalie's apartment.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew and Natalie share a meal in a quiet, emotionally charged atmosphere.</p>
+                <p><strong>Rising Action:</strong> Andrew tells Natalie about his mom's health scare. In turn, Natalie opens up about the finality of her breakup with Chris. They find immense comfort in each other's support.</p>
+                <p><strong>Climax:</strong> While cleaning up, their hands brush, creating a palpable spark. They freeze, their eyes lock, and the air is thick with unspoken feelings. Andrew almost speaks, but the intensity of the moment causes him to hesitate and step back.</p>
+                <p><strong>Ending:</strong> Andrew leaves her apartment, and the chapter closes on the feeling that they are perpetually "so close, yet so far," caught between friendship and something more.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Tentativeness -> Deep Empathy -> Shared Grief -> Budding Romance.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The unresolved romantic tension now that the obstacle of Chris is gone.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>Shared Takeout:</strong> Represents a new, more casual and domestic form of intimacy compared to their coffee shop meetings.</p>`,
+                            },
+                            {
+                            id: 6,
+                            title: "Deadlines & Doubts",
+                            summary:
+                                "Academic pressure mounts, and Andrew angrily dismisses the story's mysterious guide.",
+                            details: `<h4>Core Function:</h4><p>To establish Andrew's professional ambitions (the internship) as a potential future conflict and to re-establish Anna as a persistent, unsettling force in his life.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Professor Mendez, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>University library, Professor's office, campus garden.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew is in the library, completely overwhelmed by the deadline for his internship project.</p>
+                <p><strong>Rising Action:</strong> Natalie provides crucial emotional support. Professor Mendez gives him a confidence-boosting pep talk.</p>
+                <p><strong>Climax:</strong> Andrew encounters Anna again. Overwhelmed by stress, he angrily dismisses her cryptic warnings, yelling, "I'm done with your games... I have real problems". He storms off, leaving her looking pained.</p>
+                <p><strong>Ending:</strong> Andrew returns to his dorm and successfully submits his project with minutes to spare. The chapter ends on a feeling of hard-won victory and a "glimmer of hope," setting him on a path of forward momentum.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Overwhelm -> Comfort -> Frustration/Anger -> Accomplishment.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The external pressure of the academic deadline combined with the internal pressure of the Anna mystery.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>Anna's Sketchbook:</strong> Suggests she is an observer and recorder of events, not just a participant.</p>
+                <p><strong>The Internship Project:</strong> Establishes the professional dream that will later come into direct conflict with his personal life.</p>`,
+                            },
+                        ],
+                        },
+                        act2: {
+                        title: "Act II: The Transformation",
+                        description:
+                            "Testing the bond through fate and character-defining choices.",
+                        chapters: [
+                            {
+                            id: 7,
+                            title: "The Art Walk",
+                            summary:
+                                "Amidst devastating news, a fated moment on a bridge solidifies their romantic connection.",
+                            details: `<h4>Core Function:</h4><p>To deepen Andrew and Natalie's bond through shared vulnerability in the face of crisis, creating their first truly intimate romantic moment.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie.</p>
+
+                <h4>Setting:</h4>
+                <p>The annual campus Art Walk.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew, relieved his project is done, meets Natalie for their annual tradition.</p>
+                <p><strong>Rising Action:</strong> His mother calls with the devastating news that her tests confirmed cancer. Andrew breaks down, and Natalie comforts him, her presence a steady anchor.</p>
+                <p><strong>Climax:</strong> They find a small, secluded bridge where they discover initials "A+N" carved into the railing. The coincidence feels like fate, and in the charged moment, Andrew almost confesses his feelings but is interrupted by a roll of thunder.</p>
+                <p><strong>Ending:</strong> As they run through the ensuing rain, they take shelter under an awning, a callback to their first meeting. Before parting, Natalie gives him a lingering kiss on the cheek, leaving the air thick with unspoken possibilities.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Relief → Shocking Grief → Deep Comfort → Fated Romance → Bittersweet Longing.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The weight of Jill's diagnosis and the powerful, unresolved romantic tension between them.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>The "A+N" on the bridge reinforces their fated connection. The approaching storm mirrors their internal and external turmoil.</p>`,
+                            },
+                            {
+                            id: 8,
+                            title: "The Birthday Promise",
+                            summary:
+                                "Their friendship finally blossoms into passion, and a lottery ticket is bought on a whim.",
+                            details: `<h4>Core Function:</h4><p>To finally resolve the "will they/won't they" dynamic, culminating in their physical relationship, while simultaneously planting the seed of the lottery ticket.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie.</p>
+
+                <h4>Setting:</h4>
+                <p>The Tap House bar; a 24/7 convenience store.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie takes Andrew out to The Tap House for his 21st birthday to fulfill her promise of buying him his first legal drink.</p>
+                <p><strong>Rising Action:</strong> The night is electric with energy and unspoken feelings. After dancing, they stop at a convenience store. In a spontaneous, alcohol-fueled moment of whimsy, they decide to buy a lottery ticket using the "crazy numbers" Anna gave him, laughing it off.</p>
+                <p><strong>Climax:</strong> The lighthearted act of buying the ticket breaks the final barrier of tension between them. Andrew walks her to her apartment door, and this time there is no hesitation. He kisses her passionately.</p>
+                <p><strong>Ending:</strong> The chapter ends with them giving in completely to years of suppressed feelings, falling into bed together and consummating their relationship.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Playful Anticipation → Spontaneous Joy → Overwhelming Passion → Emotional & Physical Fulfillment.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The final, explosive resolution of their romantic journey.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>The lottery ticket is purchased as a joke and tucked away in Andrew's wallet, a forgotten object that will become a source of immense future conflict.</p>`,
+                            },
+                            {
+                            id: 9,
+                            title: "The Morning After",
+                            summary:
+                                "In the quiet afterglow, they establish their new reality as a couple.",
+                            details: `<h4>Core Function:</h4><p>To explore the immediate aftermath of their night together, establishing their new reality as a couple before external conflicts intrude again.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie.</p>
+
+                <h4>Setting:</h4>
+                <p>Natalie's apartment.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie wakes up in Andrew's arms, feeling a profound sense of peace and rightness.</p>
+                <p><strong>Rising Action:</strong> The initial bliss gives way to the quiet reality of their situation. They talk, not with the tension of their previous encounters, but with the tenderness of new lovers facing a complicated world (Jill's illness, their future).</p>
+                <p><strong>Climax:</strong> Andrew wakes, and they share a simple, domestic morning—making coffee, talking softly. It's a quiet, intimate scene that solidifies their transition from best friends to partners.</p>
+                <p><strong>Ending:</strong> The chapter ends in this bubble of happiness, with them deciding to face whatever comes next together. It is a moment of pure, hopeful peace before the next storm hits.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Bliss → Tenderness → Hopeful Resolve.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The quiet, underlying question of "what now?" and how their new relationship will function amidst the existing crises.</p>`,
+                            },
+                            {
+                            id: 10,
+                            title: "Shadows of a Stranger",
+                            summary:
+                                "A critical misunderstanding threatens their new relationship before it can even begin.",
+                            details: `<h4>Core Function:</h4><p>To create the first major conflict for Andrew and Natalie as a couple, fueled by a misunderstanding surrounding Anna.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>Brewed Awakening coffee shop.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew waits for Natalie at the coffee shop, but Anna appears first, delivering an intense and cryptic warning.</p>
+                <p><strong>Rising Action:</strong> Natalie, having returned to campus early to surprise Andrew, approaches the café.</p>
+                <p><strong>Climax:</strong> Through the window, Natalie witnesses Andrew in what appears to be an intimate, secret conversation with the mysterious Anna, even seeing her touch his hand.</p>
+                <p><strong>Ending:</strong> Heartbroken and confused, Natalie retreats without letting Andrew know she saw him or that she is even back on campus. The seed of doubt is planted.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>(Andrew) Confusion → (Natalie) Eager Anticipation → Shock, Hurt, and Doubt.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The dramatic irony of Natalie witnessing the scene and completely misinterpreting its nature.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>Andrew's internal thought that Anna bears an "uncanny" and "hauntingly familiar" resemblance to Natalie.</p>`,
+                            },
+                            {
+                            id: 11,
+                            title: "Bridges Burned and Built",
+                            summary:
+                                "Confrontation leads to deeper trust, as they vow to face the central mystery together.",
+                            details: `<h4>Core Function:</h4><p>To resolve the misunderstanding and deepen their commitment by forcing them to choose trust over doubt.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Sarah.</p>
+
+                <h4>Setting:</h4>
+                <p>Natalie's dorm room; the campus park bench.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie avoids Andrew for days, sick with doubt and also experiencing what she believes is stress-induced nausea.</p>
+                <p><strong>Rising Action:</strong> She finally finds Andrew at their bench, who is distraught over her silence and his mother's worsening condition.</p>
+                <p><strong>Climax:</strong> She confronts him about the girl from the café. He explains Anna's mysterious appearances and warnings. In a raw, tearful scene, he confesses his deep and unwavering love for her.</p>
+                <p><strong>Ending:</strong> Natalie chooses to believe him, and they reconcile, vowing to face the mystery of Anna "together." As they embrace, Anna is seen watching them from a distance, whispering, "Now it begins".</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Hurt & Resentment → Emotional Confrontation → Vulnerability & Honesty → Trust & Reconciliation.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The question of whether Natalie's doubt will destroy their new relationship or if her trust in Andrew will win out.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>Natalie's recurring nausea is explicitly mentioned again, foreshadowing the real cause.</p>`,
+                            },
+                            {
+                            id: 12,
+                            title: "The Positive Test",
+                            summary:
+                                "Natalie's world is turned upside down by the life-altering discovery of her pregnancy.",
+                            details: `<h4>Core Function:</h4><p>To introduce the story's most significant plot twist and life-altering event: Natalie's pregnancy.</p>
+
+                <h4>Characters:</h4>
+                <p>Natalie, Sarah.</p>
+
+                <h4>Setting:</h4>
+                <p>A Calculus III classroom; Sarah's dorm bathroom.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie's nausea becomes undeniable when she is forced to flee her calculus lecture to be sick.</p>
+                <p><strong>Rising Action:</strong> Her best friend, Sarah, finds her and helps her confront the pattern of her symptoms, urging her to consider the real possibility she is pregnant.</p>
+                <p><strong>Climax:</strong> Sarah buys a pregnancy test. They wait for three agonizing minutes in the bathroom. Natalie looks at the result.</p>
+                <p><strong>Ending:</strong> The test is positive. The chapter ends with Natalie sobbing in Sarah's arms, overwhelmed by the reality that she is pregnant with Andrew's child just as their life is at its most complicated.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Physical Sickness → Denial → Dread & Anxiety → Overwhelming Shock & Fear.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The biological ticking clock—the undeniable symptoms forcing a confrontation with the truth—and the suspense of the test result.</p>`,
+                            },
+                            {
+                            id: 13,
+                            title: "The Bridge on the Highway",
+                            summary:
+                                "Andrew makes a life-or-death choice, prioritizing love over ambition and unknowingly saving himself.",
+                            details: `<h4>Core Function:</h4><p>To serve as the story's midpoint reversal, where Andrew's choice of love over career ambition is validated by a fated, life-or-death event.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Anna (briefly).</p>
+
+                <h4>Setting:</h4>
+                <p>Andrew's dorm; a highway rest stop; Natalie's apartment.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew receives the acceptance email for his dream internship but discovers the mandatory orientation trip conflicts with his first "official" date with Natalie.</p>
+                <p><strong>Rising Action:</strong> Natalie selflessly encourages him to go. He sets off in his car during a violent storm, but is haunted by a final, urgent warning from Anna about "crossing the river."</p>
+                <p><strong>Climax:</strong> At a rest stop, he sees a sign for "Ann's Pretzels," where the lights flicker to leave "A&N" glowing in the dark. Overwhelmed by a powerful gut feeling that he must be with Natalie, he abandons the trip and turns back.</p>
+                <p><strong>Ending:</strong> He surprises Natalie at her apartment. Later that night, they see a breaking news report: the main highway bridge on his route collapsed in the storm, causing a major pile-up. They are left in stunned silence, realizing his choice saved his life.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Elation → Agonizing Conflict → Gut-wrenching Sacrifice → Shock & Profound Relief.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The career-vs-love dilemma, immediately followed by the life-or-death stakes of the bridge collapse.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>The "A&N" pretzel sign serves as the final catalyst for his fateful choice.</p>`,
+                            },
+                            {
+                            id: 14,
+                            title: "Truths Revealed",
+                            summary:
+                                "Natalie reveals the pregnancy, recasting Andrew's fateful choice as an act that saved their family.",
+                            details: `<h4>Core Function:</h4><p>To have Natalie reveal the pregnancy to Andrew, directly linking this new life to the life that was just saved.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Sarah (briefly).</p>
+
+                <h4>Setting:</h4>
+                <p>Natalie's dorm; the campus park bench.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Natalie, still reeling from the news of Andrew's near-miss, knows she cannot keep her secret any longer.</p>
+                <p><strong>Rising Action:</strong> She meets Andrew at their bench, the place of so many of their pivotal moments.</p>
+                <p><strong>Climax:</strong> She hands him the envelope containing her first ultrasound photo.</p>
+                <p><strong>Ending:</strong> Andrew stares at the photo, his initial confusion giving way to tears of overwhelming joy and disbelief. He holds her, whispering "We're having a baby," and the chapter ends with them embracing, the news recasting his fated decision as an act that preserved their entire future family.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Nervous Courage → Tense Silence → Stunned Disbelief → Overwhelming Joy & Wonder.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The emotional suspense leading up to and during Andrew's reaction to the pregnancy news.</p>`,
+                            },
+                            {
+                            id: 15,
+                            title: "The Unspoken Weight",
+                            summary:
+                                "The joy of new life is contrasted with the sorrow and financial pressure of Jill's illness.",
+                            details: `<h4>Core Function:</h4><p>To contrast the joy and anticipation of the pregnancy with the increasing sorrow and real-world pressure of Jill's declining health and finances.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Jill, Jim.</p>
+
+                <h4>Setting:</h4>
+                <p>Hospital waiting rooms; Andrew's family home.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew and Natalie attend their first ultrasound together, seeing their baby's heartbeat and feeling a wave of joy.</p>
+                <p><strong>Rising Action:</strong> This joy is immediately contrasted with a visit to Jill, whose health is visibly worsening.</p>
+                <p><strong>Climax:</strong> Andrew overhears a phone call between his grandfather and an insurance company, learning for the first time the true, staggering cost of Jill's treatments ($47,892 for a single round) and the depth of their financial struggle.</p>
+                <p><strong>Ending:</strong> The chapter ends with Andrew feeling the immense, "unspoken weight" of these conflicting realities—the joy of new life and the fear of impending loss and debt.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Tender Joy → Mounting Anxiety → Sobering Fear → Helplessness.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The seemingly insurmountable financial and emotional pressure building on Andrew.</p>`,
+                            },
+                            {
+                            id: 16,
+                            title: "Loss and Legacy",
+                            summary:
+                                "The profound grief of his mother's passing leads Andrew to discover her deepest wish.",
+                            details: `<h4>Core Function:</h4><p>To bring Andrew to his lowest point with the death of his mother, while simultaneously providing him with the moral purpose that will guide his final, defining choice.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Jill, Jim.</p>
+
+                <h4>Setting:</h4>
+                <p>The hospital; Andrew's childhood bedroom.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew receives an urgent call from his grandfather and rushes to the hospital with Natalie.</p>
+                <p><strong>Rising Action:</strong> They share a final, heartbreaking goodbye with Jill, who looks at the ultrasound photo and makes Andrew promise to tell her grandchild all about her.</p>
+                <p><strong>Climax:</strong> Jill passes away peacefully.</p>
+                <p><strong>Ending:</strong> Weeks later, while sorting through his mother's belongings after the funeral, Andrew finds her old journal. He reads an entry where she wrote about the financial struggles of families fighting cancer and wished for a "better way" to help them. This plants the seed of her legacy in his mind.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Urgent Fear → Heartbreaking Grief → Nostalgic Sadness → A Spark of Purpose.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The profound emotional weight of a parent's death.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p>Jill's journal entry directly foreshadows and provides the motivation for Andrew's ultimate decision about the lottery money.</p>`,
+                            },
+                            {
+                            id: 17,
+                            title: "The Winning Ticket",
+                            summary:
+                                "A forgotten lottery ticket provides an impossible solution and Andrew's ultimate moral test.",
+                            details: `<h4>Core Function:</h4><p>To introduce the story's final major catalyst—the lottery win—which serves as Andrew's ultimate moral test.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>Andrew's childhood home.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew is at his lowest, crushed by grief, the newly discovered medical debt, and the responsibility of becoming a father.</p>
+                <p><strong>Rising Action:</strong> He finds the forgotten lottery ticket from his birthday in his wallet.</p>
+                <p><strong>Climax:</strong> On a desperate, hopeless whim, he checks the numbers and is stunned to realize he has won the record-breaking jackpot.</p>
+                <p><strong>Ending:</strong> His shock is immediately met by the appearance of a terrified and distraught Anna, who confronts him: "What have you done?... You promised not to use them!" Her panic frames the win not as a blessing, but as a potential curse.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Despair → Disbelief → Stunned Shock → Confusion & Fear.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The unbelievable reveal of the winning ticket, immediately followed by Anna's terrified and cryptic reaction.</p>`,
+                            },
+                            {
+                            id: 18,
+                            title: "The Weight of a Wager",
+                            summary:
+                                "In his dark night of the soul, Andrew sacrifices personal security to create a selfless legacy.",
+                            details: `<h4>Core Function:</h4><p>To serve as Andrew's "dark night of the soul," where he makes the defining choice of his character arc, choosing legacy over personal gain.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>Andrew's family home.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Anna pleads with Andrew not to claim the ticket, warning of severe, unknown consequences for the timeline.</p>
+                <p><strong>Rising Action:</strong> Andrew is tormented. The money is the logical solution to all his problems. He discusses it with Natalie, who supports whatever he decides is right.</p>
+                <p><strong>Climax:</strong> He re-reads his mother's journal entry about wanting to help other families. He understands what he must do. His choice is clear.</p>
+                <p><strong>Ending:</strong> Andrew sits down and writes an anonymous note to accompany the winning ticket, dedicating the donation to his mother's memory. He has made his choice, sacrificing personal security for a selfless legacy, and finds a solemn peace in his decision.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Agonizing Conflict → Moral Despair → Quiet Clarity → Solemn Resolve.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The intense internal moral conflict between personal need and selfless legacy.</p>`,
+                            },
+                        ],
+                        },
+                        act3: {
+                        title: "Act III: The Circle",
+                        description:
+                            "Resolving the central mystery and affirming the story's themes of love and legacy.",
+                        chapters: [
+                            {
+                            id: 19,
+                            title: "Graduation Day",
+                            summary:
+                                "On the cusp of their future, Anna validates Andrew's choices and offers a final, mysterious promise.",
+                            details: `<h4>Core Function:</h4><p>To mark the end of one chapter of their lives and the beginning of the next, and to have Anna validate Andrew's moral choices, deepening the mystery of her identity one last time.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Jim, Natalie's Parents, Anna.</p>
+
+                <h4>Setting:</h4>
+                <p>The university quad on graduation day.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Andrew and Natalie, in their caps and gowns, prepare for the ceremony. Natalie is now six months pregnant. They see their families sitting together, with an empty chair left beside Jim in memory of Jill.</p>
+                <p><strong>Rising Action:</strong> After the ceremony, Andrew feels drawn to their carved bench for a moment of reflection. Anna appears, but her usual urgency is replaced with awe.</p>
+                <p><strong>Climax:</strong> Anna tells Andrew she is proud of his choice to donate the lottery winnings, admitting, "I never saw that possibility". She reveals his choice protected more than he knows. She gives him a hug that feels "oddly familiar" and whispers, "We'll meet again soon... Sooner than you think," before vanishing.</p>
+                <p><strong>Ending:</strong> Andrew rejoins Natalie and their families. He is left pondering Anna's words and the strange familiarity of her embrace, while Natalie suggests they will one day tell their daughter the story of the "mysterious stranger" who helped them.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Pride → Nostalgic Grief → Wonder → Lingering Mystery.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The central mystery of Anna's identity and her final, poignant promise.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>The Empty Chair:</strong> A physical representation of Jill's presence and the love that endures past loss.</p>
+                <p><strong>Anna's Hug:</strong> The "familiar" feeling foreshadows their deep, biological connection.</p>
+                <p><strong>"Sooner than you think":</strong> Directly foreshadows the reveal of their daughter's name in the next chapter.</p>`,
+                            },
+                            {
+                            id: 20,
+                            title: "New Beginnings",
+                            summary:
+                                "A courthouse wedding leads to a serendipitous discovery, bringing the 'A&N' mystery full circle.",
+                            details: `<h4>Core Function:</h4><p>To formalize Andrew and Natalie's union and to provide the beautiful, fated reveal of their daughter's name, bringing the "A&N" symbolism full circle.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Natalie, Jim, Sarah, Natalie's Parents, Professor Mendez.</p>
+
+                <h4>Setting:</h4>
+                <p>A local courthouse; Brewed Awakening coffee shop.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Months later, Andrew and Natalie prepare for their simple courthouse wedding. Natalie is now eight months pregnant.</p>
+                <p><strong>Rising Action:</strong> During the simple ceremony, their unborn daughter kicks several times, as if in excitement.</p>
+                <p><strong>Climax:</strong> While signing the official marriage license, Andrew notices that their initials—AN (Andrew Nolan) and NA (Natalie Alexander)—combine to spell ANNA. In that instant, they know they have found their daughter's name.</p>
+                <p><strong>Ending:</strong> At a small reception at Brewed Awakening, they announce the name "Anna Nolan" to their families. Andrew reflects on the mysterious girl Anna, the connection still just out of reach, as he and Natalie head home to start their new life together.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Joyful Commitment → Serendipitous Discovery → Deep Emotional Resonance.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>A gentle, emotional tension leading to the deeply satisfying reveal of the name's origin.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>The Marriage License:</strong> The document that formalizes their union also provides the final clue to the "A&N" mystery.</p>
+                <p><strong>The Baby's Kicks:</strong> Symbolizes her presence and participation in the key moments of her parents' lives, even before her birth.</p>`,
+                            },
+                            {
+                            id: 21,
+                            title: "Full Circle",
+                            summary:
+                                "Years later, the stunning truth is revealed: their daughter Anna was the guide who orchestrated their survival.",
+                            details: `<h4>Core Function:</h4><p>To provide the ultimate climax and emotional catharsis of the novel by revealing Anna's true identity and purpose.</p>
+
+                <h4>Characters:</h4>
+                <p>Andrew, Anna (as an adult).</p>
+
+                <h4>Setting:</h4>
+                <p>The Jill Nolan Memorial Hospital.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Twenty-four years have passed. Andrew visits the hospital his donation funded to see his daughter, Dr. Anna Nolan, on her first day as an oncology resident.</p>
+                <p><strong>Rising Action:</strong> Standing before Jill's portrait, Anna gently confronts Andrew about the past he never talks about. He looks at her and for a moment sees a "hauntingly familiar figure".</p>
+                <p><strong>Climax:</strong> Anna reveals the truth through a tearful confession: she was the mysterious girl from his past. She explains she had to travel back to guide him, to ensure he would make the choices—especially skipping the flight—that would save his life and allow her to be born.</p>
+                <p><strong>Ending:</strong> Andrew, in a state of profound shock and joy, embraces his daughter, finally understanding the "miracle across time". He realizes every sign and every choice was leading to this moment, to this unbreakable circle of love. Anna gets paged to see a patient, and walks away down the hall, her "white coat flowing behind her like wings".</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Fatherly Pride → Deepening Confusion → Profound Shock → Overwhelming Emotional Catharsis → Peaceful Understanding.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>The slow, stunning, and deeply emotional reveal of Anna's time-traveling intervention.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>Anna's White Coat:</strong> Symbolizes the fulfillment of her grandmother's legacy and her own purpose. It flows "like wings," confirming her role as his guardian angel.</p>
+                <p><strong>Jill's Portrait:</strong> Watches over the scene, representing the legacy that fueled Anna's mission and Andrew's choices.</p>`,
+                            },
+                            {
+                            id: 22,
+                            title: "Epilogue: The Garden",
+                            summary:
+                                "The next generation ensures the family's circle of love, sacrifice, and legacy will begin again.",
+                            details: `<h4>Core Function:</h4><p>To provide a final, quiet emotional grace note, showing the enduring power of love and legacy across multiple generations and bringing the story's "circle" theme to its ultimate conclusion.</p>
+
+                <h4>Characters:</h4>
+                <p>Anna, (in spirit) Andrew, Natalie, Jill, Jim.</p>
+
+                <h4>Setting:</h4>
+                <p>A cemetery; the university campus.</p>
+
+                <h4>Plot Progression (Key Scenes):</h4>
+                <p><strong>Opening:</strong> Many years later, Dr. Anna Nolan, now a renowned oncologist and pregnant with her own child, visits the grave of her grandparents, Andrew and Natalie.</p>
+                <p><strong>Rising Action:</strong> She speaks to them, telling them about their legacy and announcing they are going to be great-grandparents.</p>
+                <p><strong>Climax:</strong> She then visits the old university campus, following the same pilgrimage route her parents took every month. From a distance, she watches an elderly couple—a clear echo of her parents—sitting together at the carved bench.</p>
+                <p><strong>Ending:</strong> Anna places a hand on her stomach, feeling the new life within her. She understands that time is not a line but a circle, and that their family's circle of love, sacrifice, and healing is just beginning again.</p>
+
+                <h4>Key Emotional Beats:</h4>
+                <p>Gentle Remembrance → Hopeful Continuation → Peaceful Closure.</p>
+
+                <h4>Tension Driver:</h4>
+                <p>There is no tension; this chapter is a pure denouement focused on theme and emotion.</p>
+
+                <h4>Symbols & Foreshadowing:</h4>
+                <p><strong>Anna's Pregnancy:</strong> The ultimate symbol of the story coming full circle and a new generation beginning.</p>
+                <p><strong>The Elderly Couple at the Bench:</strong> Represents the enduring, lifelong love of Andrew and Natalie and the cyclical nature of their story.</p>`,
+            },
+          ],
+        },
+      };
+
+      // Function to create an Act section
+      function createActSection(actKey, actData) {
+        const container = document.getElementById(`${actKey}-container`);
+        if (container) {
+          container.innerHTML = `
+                    <div id="${actKey}" class="mb-12">
+                        <div class="act-header">
+                            <h2 class="text-2xl font-bold text-gray-800">${
+                              actData.title
+                            }</h2>
+                            <p class="text-md text-gray-500">${
+                              actData.description
+                            }</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${actData.chapters
+                              .map(
+                                (chapter) => `
+                                <div class="chapter-card p-4 rounded-lg shadow-sm" onclick="showChapterDetails('${actKey}', ${chapter.id})">
+                                    <div class="flex items-baseline mb-2">
+                                        <span class="text-sm font-semibold text-orange-700 bg-orange-100 py-1 px-2 rounded">Chapter ${chapter.id}</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">${chapter.title}</h3>
+                                    <p class="text-sm text-gray-600">${chapter.summary}</p>
+                                </div>
+                            `
+                              )
+                              .join("")}
+                        </div>
+                    </div>
+                `;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: "base",
+          themeVariables: {
+            primaryColor: "#ffffff",
+            primaryTextColor: "#1f2937",
+            lineColor: "#d1d5db",
+            nodeBorder: "#e5e7eb",
+            mainBkg: "#f8f9fa",
+          },
+        });
+
+        createActSection("act1", storyData.act1);
+        createActSection("act2", storyData.act2);
+        createActSection("act3", storyData.act3);
+      });
+
+      function showChapterDetails(actKey, chapterId) {
+        const chapter = storyData[actKey].chapters.find(
+          (c) => c.id === chapterId
+        );
+        if (chapter && chapter.details) {
+          document.getElementById(
+            "modal-title"
+          ).innerText = `Chapter ${chapter.id}: ${chapter.title}`;
+          document.getElementById("modal-body").innerHTML = chapter.details;
+          document.getElementById("modal-container").classList.remove("hidden");
+        }
+      }
+
+      function hideChapterDetails() {
+        document.getElementById("modal-container").classList.add("hidden");
+      }
+
+      function showView(viewName) {
+        const outlineView = document.getElementById('view-outline');
+        const diagramView = document.getElementById('view-diagram');
+        const actionView = document.getElementById('view-action');
+        const rewriteView = document.getElementById('view-rewrite');
+        const outlineTab = document.getElementById('tab-outline');
+        const diagramTab = document.getElementById('tab-diagram');
+        const actionTab = document.getElementById('tab-action');
+        const rewriteTab = document.getElementById('tab-rewrite');
+
+        // Hide all views
+        outlineView.classList.add('hidden');
+        diagramView.classList.add('hidden');
+        actionView.classList.add('hidden');
+        rewriteView.classList.add('hidden');
+
+        // Remove active state from all tabs
+        outlineTab.classList.remove('tab-active');
+        outlineTab.classList.add('tab-inactive');
+        diagramTab.classList.remove('tab-active');
+        diagramTab.classList.add('tab-inactive');
+        actionTab.classList.remove('tab-active');
+        actionTab.classList.add('tab-inactive');
+        rewriteTab.classList.remove('tab-active');
+        rewriteTab.classList.add('tab-inactive');
+
+        // Show selected view and activate its tab
+        if (viewName === 'outline') {
+          outlineView.classList.remove('hidden');
+          outlineTab.classList.add('tab-active');
+          outlineTab.classList.remove('tab-inactive');
+        } else if (viewName === 'diagram') {
+          diagramView.classList.remove('hidden');
+          diagramTab.classList.add('tab-active');
+          diagramTab.classList.remove('tab-inactive');
+          
+          // Render mermaid diagram if not already processed
+          const mermaidChart = document.getElementById('mermaid-chart');
+          if(mermaidChart.getAttribute('data-processed') !== 'true') {
+            mermaid.run({
+              nodes: [mermaidChart],
+            });
+          }
+        } else if (viewName === 'action') {
+          actionView.classList.remove('hidden');
+          actionTab.classList.add('tab-active');
+          actionTab.classList.remove('tab-inactive');
+        } else if (viewName === 'rewrite') {
+          rewriteView.classList.remove('hidden');
+          rewriteTab.classList.add('tab-active');
+          rewriteTab.classList.remove('tab-inactive');
+        }
+      }
+    </script>
+  </body>
+</html>

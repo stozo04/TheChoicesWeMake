@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developmental Edit: The Full Circle of Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: The SPA is structured into thematic, navigable sections to deconstruct the dense report into manageable, task-oriented views. The structure is: 1) Overview for immediate takeaways (summary/rating), 2) Deep Dive for detailed critique (strengths/weaknesses), 3) Interactive Pacing Chart to visualize story flow, 4) Foreshadowing Tracker to connect narrative threads, 5) Action Plan for a clear revision roadmap, 6) Rewrite Showcase for concrete examples, and 7) Publishing Journey for next steps. This non-linear, thematic approach was chosen over a simple scroll to empower the author to engage with the feedback on their own terms, focusing on analysis, action, or examples as needed, thus reducing overwhelm and improving usability. -->
+    <!-- Visualization & Content Choices: Report Info -> Executive Summary/Rating. Goal -> Inform. Viz -> Styled text/Donut Chart. Interaction -> Immediate high-level feedback. Justification -> Provides a quick emotional and qualitative baseline. Library -> Chart.js. | Report Info -> Pacing Analysis Table. Goal -> Analyze Change. Viz -> Interactive Bar Chart. Interaction -> Click bars to display detailed text analysis. Justification -> Transforms static data into an explorable narrative map, making it easier to spot pacing trends across chapters. Library -> Chart.js. | Report Info -> Action Plan. Goal -> Organize tasks. Viz -> Interactive Cards. Interaction -> Click to expand details. Justification -> Breaks a long list into digestible, prioritized, and color-coded tasks. Method -> HTML/Tailwind/JS. | Report Info -> Publishing Plan. Goal -> Show process. Viz -> Vertical Timeline. Interaction -> Static visual guide. Justification -> Clearly outlines a linear process for post-edit work. Method -> HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #332d29;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active {
+            color: #C06B3E;
+            border-bottom-color: #C06B3E;
+        }
+        .nav-link:hover {
+            color: #D68D64;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+        .difficulty-hard { background-color: #FECACA; color: #991B1B; }
+        .difficulty-medium { background-color: #FDE68A; color: #92400E; }
+        .difficulty-easy { background-color: #D1FAE5; color: #065F46; }
+        .before-after-block {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            border-left-width: 4px;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #F0E9E1;
+            border: 3px solid #C06B3E;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-800">Developmental Edit</h1>
+            <p class="text-2xl font-serif italic text-stone-600 mt-2">The Full Circle of Us</p>
+        </header>
+
+        <nav class="mb-12 border-b border-stone-200">
+            <ul class="flex flex-wrap justify-center -mb-px text-sm font-medium text-center text-stone-500">
+                <li class="mr-2">
+                    <a href="#" data-view="overview" class="nav-link inline-block p-4 rounded-t-lg active">Overview</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" data-view="analysis" class="nav-link inline-block p-4 rounded-t-lg">Deep Dive Analysis</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" data-view="pacing" class="nav-link inline-block p-4 rounded-t-lg">Pacing Visualizer</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" data-view="roadmap" class="nav-link inline-block p-4 rounded-t-lg">Action Plan</a>
+                </li>
+                 <li class="mr-2">
+                    <a href="#" data-view="rewrites" class="nav-link inline-block p-4 rounded-t-lg">Rewrite Showcase</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" data-view="publishing" class="nav-link inline-block p-4 rounded-t-lg">Publishing Journey</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="bg-amber-50 rounded-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-4">Executive Summary</h2>
+                    <p class="text-stone-700 leading-relaxed mb-8">This novel is a deeply moving and emotionally resonant romantic drama, expertly weaving together themes of fated love, profound loss, and the transformative power of selfless choice. The core romance between Andrew and Natalie is beautifully developed, evolving from a long-standing friendship into a powerful, destined connection. The narrative's strength lies in its ability to evoke genuine emotion, particularly through Andrew's journey with his mother's illness and his ultimate act of legacy. The mysterious figure of Anna serves as an intriguing, almost supernatural, guide, adding a layer of magical realism that elevates the story beyond a typical romance. While the prose style is generally strong and engaging, opportunities exist to deepen character motivations, refine pacing in certain sections, and enhance the clarity of Anna's interventions to maximize emotional payoff and narrative cohesion.</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 bg-white/50 p-6 rounded-lg">
+                        <div class="relative w-48 h-48">
+                             <canvas id="ratingChart"></canvas>
+                             <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                 <span class="text-5xl font-bold text-stone-800">9</span>
+                                 <span class="text-lg text-stone-600">/ 10</span>
+                             </div>
+                        </div>
+                        <div class="text-center md:text-left max-w-md">
+                            <h3 class="text-2xl font-semibold text-stone-800 font-lora">Overall Rating</h3>
+                            <p class="text-stone-600 mt-2 leading-relaxed">The novel is a beautifully crafted, emotionally rich romantic drama that masterfully intertwines themes of love, loss, and destiny, delivering a truly unforgettable reading experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Section -->
+            <section id="analysis" class="content-section">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800">Deep Dive Analysis</h2>
+                    <p class="mt-2 text-lg text-stone-600 max-w-3xl mx-auto">This section provides a detailed breakdown of the manuscript's core components. Click on each category to explore its identified strengths and areas for improvement.</p>
+                </div>
+                <div id="analysis-accordion" class="space-y-4"></div>
+            </section>
+
+            <!-- Pacing Section -->
+            <section id="pacing" class="content-section">
+                 <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800">Pacing Visualizer</h2>
+                    <p class="mt-2 text-lg text-stone-600 max-w-3xl mx-auto">This chart visualizes the dominant pacing across the chapters of the novel. Click on a chapter's bar to see a detailed analysis of its pacing, key events, and the emotional arc it reflects.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                        <div class="chart-container">
+                            <canvas id="pacingChart"></canvas>
+                        </div>
+                    </div>
+                    <div id="pacing-details" class="bg-amber-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-4">Chapter Details</h3>
+                        <p class="text-stone-600">Select a chapter from the chart to view its analysis here.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap Section -->
+            <section id="roadmap" class="content-section">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800">Prioritized Action Plan</h2>
+                    <p class="mt-2 text-lg text-stone-600 max-w-3xl mx-auto">Here is your revision roadmap, with tasks ordered by impact. Click on any card to see concrete steps and a list of affected files.</p>
+                </div>
+                <div id="roadmap-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+            
+            <!-- Rewrites Section -->
+            <section id="rewrites" class="content-section">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800">Rewrite Showcase</h2>
+                    <p class="mt-2 text-lg text-stone-600 max-w-3xl mx-auto">These "Before & After" examples demonstrate how to implement some of the highest-impact suggestions from the action plan.</p>
+                </div>
+                <div id="rewrites-container" class="space-y-12"></div>
+            </section>
+
+            <!-- Publishing Section -->
+            <section id="publishing" class="content-section">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800">Your Publishing Journey</h2>
+                    <p class="mt-2 text-lg text-stone-600 max-w-3xl mx-auto">Once developmental edits are complete, the path to a publication-ready manuscript involves several key stages. Here’s a step-by-step guide.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div id="timeline-container" class="relative border-l-2 border-stone-200 ml-4 pl-8 space-y-12 py-4"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const appData = {
+        analysis: [
+            {
+                title: "Narrative Flow",
+                strengths: [
+                    "Clear Chronological Progression",
+                    "Effective Use of Dual Perspectives (Andrew & Natalie)",
+                    "Well-Defined Scene Transitions",
+                ],
+                weaknesses: [
+                    "Repetitive Interruption Trope",
+                    "Sudden Shifts in Anna's Presence",
+                ]
+            },
+            {
+                title: "Pacing Balance",
+                strengths: [
+                    "Effective Use of Slow Pacing for Emotional Depth",
+                    "Dramatic Acceleration at Key Turning Points",
+                    "Climactic Build-up to Romantic Payoff",
+                ],
+                weaknesses: [
+                    "Potential for Drag in Early Romantic Conflict",
+                    "Anna's Interventions Sometimes Feel Disconnected from Immediate Pacing",
+                ]
+            },
+            {
+                title: "Foreshadowing & Payoff",
+                strengths: [
+                    "Masterful Use of Anna's Prophecies",
+                    "Symbolic Foreshadowing (A&N, Pretzel Sign)",
+                    "Natalie's Pregnancy Hints",
+                    "Early Hints of Anna's Identity",
+                ],
+                weaknesses: [
+                    "Occasional Redundancy in Anna's Warnings",
+                    "Subtlety of Andrew's Obliviousness to Natalie's Pregnancy",
+                ]
+            },
+            {
+                title: "Character Arcs",
+                strengths: [
+                    "Andrew's Transformative Arc",
+                    "Natalie's Journey of Self-Discovery",
+                    "Anna's Evolving Role",
+                    "Strong Supporting Characters (Jim & Sarah)",
+                ],
+                weaknesses: [
+                    "Andrew's Initial Passivity in Romantic Pursuits",
+                    "Chris's Limited Depth Post-Breakup",
+                ]
+            },
+             {
+                title: "Thematic Integration",
+                strengths: [
+                    "Cohesive Exploration of Love's Many Forms",
+                    "Profound Integration of Loss and Legacy",
+                    "Compelling Interplay of Choice and Destiny",
+                    "Symbolism Reinforcing Themes",
+                ],
+                weaknesses: [
+                    "Ambiguity of Anna's 'Rules' for Intervention",
+                    "Subtle Undermining of Free Will",
+                ]
+            },
+            {
+                title: "Prose Style & Voice",
+                strengths: [
+                    "Evocative and Emotionally Resonant Language",
+                    "Strong Use of Sensory Details",
+                    "Effective Internal Monologue",
+                    "Authentic Dialogue",
+                ],
+                weaknesses: [
+                    "Occasional Repetitive Phrasing",
+                    `Over-reliance on "Too Much/Too Everything"`,
+                    "Slightly Underdeveloped Sensory Detail for Anna's Appearances",
+                ]
+            }
+        ],
+        pacing: [
+            { chapter: "01", pace: "Slow/Anxious", justification: "Andrew's internal monologue, Natalie's mention of Chris, almost-confession interrupted.", arc: "Building tension, frustration, longing." },
+            { chapter: "02", pace: "Slow/Anxious, then abrupt shift", justification: "Andrew's internal anxiety, Natalie's anniversary dinner, Chris's phone call, Anna's appearance.", arc: "Anticipation, dread, shock, despair, new direction." },
+            { chapter: "03", pace: "Deliberate, gradually escalating", justification: "Andrew's homecoming, subtle tension with mother, father's photo, Jill's diagnosis.", arc: "Nostalgia, unease, mounting dread, shock, determination." },
+            { chapter: "04", pace: "Slow burn, then accelerated conflict", justification: "Natalie's internal conflict, strained dinner, confrontation with Chris, silent confession.", arc: "Discomfort, growing distance, hurt, resignation, self-realization." },
+            { chapter: "05", pace: "Measured, reflective", justification: "Andrew's confession about his mom, Natalie's about Chris, repeated almost-confessions.", arc: "Vulnerability, empathy, unresolved tension, longing." },
+            { chapter: "06", pace: "Urgent, then reflective, then rapid", justification: "Andrew's project deadline, Natalie's support, Anna's confrontation, project submission.", arc: "Stress, relief, frustration, accomplishment." },
+            { chapter: "07", pace: "Initial lightness, then heavy", justification: "Andrew's project relief, mother's cancer news, emotional breakdown with Natalie, bridge scene.", arc: "Relief, shock, grief, comfort, burgeoning romantic tension." },
+            { chapter: "08", pace: "Accelerating tension, climactic", justification: "Andrew's 21st birthday, Chris's call to Natalie, near-kisses, mutual confession, intimacy.", arc: "Anticipation, nervousness, desire, breakthrough, fulfillment." },
+            { chapter: "09", pace: "Moderate, then rapid for breakup", justification: "Natalie's morning-after guilt, breakup with Chris, family comfort, decision to pursue Andrew.", arc: "Guilt, pain, relief, clarity, hope, purpose." },
+            { chapter: "10", pace: "Deliberate, rising tension", justification: "Andrew's anticipation, Anna's cryptic lottery numbers, Natalie's observation, Andrew's anxiety, Natalie's nausea.", arc: "Anticipation, confusion, hurt, doubt, profound personal revelation." },
+            { chapter: "11", pace: "Deliberate, building tension", justification: "Natalie's distress, Sarah's intervention, Andrew's pain, their reconciliation, mysterious observer.", arc: "Hurt, fear, empathy, trust, reconciliation, lingering mystery." },
+            { chapter: "12", pace: "Slowed, accelerating to climax", justification: "Natalie's morning sickness, Sarah's support, Andrew's date proposal, pregnancy test.", arc: "Denial, anxiety, fear, realization, overwhelming emotion." },
+            { chapter: "13", pace: "Slow burn, accelerated middle", justification: "Andrew's date planning, internship acceptance, choice dilemma, Natalie's support, Anna's warning.", arc: "Excitement, conflict, sacrifice, love, hidden burden." },
+            { chapter: "14", pace: "Slowed, accelerating to decision", justification: "Flight delay, Andrew's reflections, pretzel sign, decision to skip flight, plane crash news.", arc: "Anxiety, intuition, profound relief, validation, destiny." },
+            { chapter: "15", pace: "Deliberate, building to climax", justification: "Natalie's morning sickness, Sarah's encouragement, Andrew's arrival, ultrasound reveal, Andrew's reaction.", arc: "Fear, courage, relief, joy, love, acceptance." },
+            { chapter: "16", pace: "Slow, abrupt shift, intensified climax", justification: "Andrew's reflections on fatherhood/bills, Anna's sudden appearance, lottery reveal, Anna's warning.", arc: "Responsibility, anxiety, shock, moral dilemma, profound mystery." },
+            { chapter: "17", pace: "Slowed, accelerated, then reflective", justification: "Jill's final moments, funeral, Andrew's grief, discovery of journal, lottery donation, research center announcement.", arc: "Grief, determination, selflessness, peace, legacy." },
+            { chapter: "18", pace: "Deliberate, reflective", justification: "Graduation ceremony, Andrew at the bench, Anna's appearance and validation, looking to the future.", arc: "Pride, remembrance, peace, wonder, anticipation." },
+            { chapter: "19", pace: "Moderate, then dramatic reveal", justification: "Courthouse wedding, 'Anna' initial discovery, celebration, final reflection on Anna's mystery.", arc: "Love, commitment, serendipity, joy, lingering mystery." },
+            { chapter: "20", pace: "Gentle, rising tension, climactic", justification: "Andrew at hospital, Anna's questions, Andrew's fragmented memories, Anna's time-travel reveal.", arc: "Pride, confusion, profound shock, emotional catharsis, acceptance, purpose." }
+        ],
+        roadmap: [
+            {
+                title: "Enhance Anna's Interventions",
+                difficulty: "Hard",
+                summary: "Increase the impact and believability of Anna's role and the choice/destiny theme.",
+                steps: [
+                    "Review all scenes with Anna. Introduce subtle, unique sensory cues (a specific scent, a shift in light) that precede her arrival to make her presence more integrated.",
+                    "Vary the phrasing and emotional tone of her warnings. Each message should feel distinct and escalate the stakes.",
+                    "Reinforce Andrew's agency. Show his choices as deliberate acts driven by his character, even when guided by Anna."
+                ],
+                files: "02, 06, 10, 13, 16, 18, 20"
+            },
+            {
+                title: "Refine Early Romantic Conflict Pacing",
+                difficulty: "Medium",
+                summary: "Adjust the 'will they/won't they' dynamic to maintain reader engagement.",
+                steps: [
+                    "Review early 'almost confession' scenes.",
+                    "Ensure each interrupted moment introduces a new layer of conflict or character insight, making the delay feel meaningful.",
+                    "Consider slightly reducing the number of external interruptions, letting Andrew's internal hesitation play a larger role."
+                ],
+                files: "01, 02, 05, 07, 08"
+            },
+             {
+                title: "Strengthen Pregnancy Concealment",
+                difficulty: "Medium",
+                summary: "Make Andrew's obliviousness more sympathetic and Natalie's actions more deliberate.",
+                steps: [
+                    "Reduce instances where Andrew is simply 'too distracted to notice' Natalie's symptoms.",
+                    "Emphasize Andrew's overwhelming external stressors (mother's illness, internship) as the primary reason for his distraction.",
+                    "Show Natalie actively trying to conceal her symptoms more effectively."
+                ],
+                files: "11, 12, 13, 14"
+            },
+             {
+                title: "Enhance Prose Style",
+                difficulty: "Easy",
+                summary: "Reduce repetitive phrasing and vary expressions of intense emotion.",
+                steps: [
+                    "Search for and rephrase repeated phrases like 'The choices you make...' and 'too small, too large...'.",
+                    "Use synonyms, different sentence structures, or alternative descriptions to maintain impact without repetition.",
+                    "Explore more varied ways for Anna to convey urgency in her warnings."
+                ],
+                files: "All chapters, esp. 12 & 13"
+            },
+             {
+                title: "Deepen Character Agency",
+                difficulty: "Medium",
+                summary: "Bolster Andrew's early romantic initiative and provide closure for Chris's arc.",
+                steps: [
+                    "In early chapters, show Andrew attempting small, non-verbal romantic gestures or having more intense internal debates about confessing.",
+                    "Add a brief, later reflection from Natalie or Andrew on Chris's well-being after the breakup for closure."
+                ],
+                files: "01, 02, 05, 09"
+            }
+        ],
+        rewrites: [
+            {
+                title: "Task: Enhance Andrew's perception and Natalie's active concealment regarding the pregnancy.",
+                file: "chapters/14_the_flight_that_never_was.txt",
+                before: `"But the internship..." she whispered, one hand unconsciously moving to her stomach - a gesture he still didn't quite register.\n"Andrew, this was your dream."`,
+                after: `"But the internship..." she whispered, her voice catching. Her hand, almost imperceptibly, brushed her stomach, a fleeting, protective gesture hidden beneath the loose fabric of her dress. Andrew, consumed by the enormity of his decision and the storm outside, only registered her words, not the silent language of her touch.\n"Andrew, this was your dream."`
+            },
+            {
+                title: "Task: Refine the pacing of the early romantic conflict to maintain reader engagement.",
+                file: "chapters/07_the_art_walk.txt",
+                before: `"Natalie, I..." he began, his voice thick with a longing he could no longer suppress.\nShe held his gaze, her eyes reflecting the warm glow of the lanterns, a silent invitation. "Yes?" she prompted gently, her breath soft against his lips.\nHe hesitated... "I'm just... grateful to have you in my life," he finally managed...`,
+                after: `"Natalie, I..." he began, his voice thick with a longing he could no longer suppress.\nShe held his gaze, her eyes reflecting the warm glow of the lanterns, a silent invitation. "Yes?" she prompted gently, her breath soft against his lips.\nHe hesitated... His hand, as if with a will of its own, reached for hers, intertwining their fingers.\n"I'm just... grateful to have you in my life," he finally managed, the words a pale shadow of what he truly felt, but a start.`
+            },
+            {
+                title: "Task: Enhance prose style by reducing repetitive phrasing.",
+                file: "chapters/12_natalie_pregnancy_reveal.txt",
+                before: `The classroom suddenly felt too small, too warm, too everything.\nProfessor Chen's voice morphed into a distant hum as blood rushed in her ears.`,
+                after: `The classroom suddenly felt stifling, the air thick and heavy. Professor Chen's voice morphed into a distant hum as blood rushed in her ears, a frantic drumbeat against her temples.`
+            }
+        ],
+        publishing: [
+            { step: 1, title: "Self-Revision (Post-Developmental Edit)", description: "Implement the feedback from this report, focusing on structural, pacing, character arc, and thematic enhancements. Read the manuscript aloud to catch awkward phrasing." },
+            { step: 2, title: "Line Editing", description: "Polish the prose at the sentence level, focusing on clarity, word choice, and rhythm. Eliminate clichés, redundancies, and passive voice. Strengthen verbs." },
+            { step: 3, title: "Proofreading", description: "Catch any remaining errors in grammar, spelling, and punctuation. This is the final polish. Reading on a different device (e.g., e-reader) can help." },
+            { step: 4, title: "Sensitivity Reading", description: "If the narrative touches on sensitive topics (e.g., illness, grief), engage a reader with lived experience to ensure portrayals are accurate and respectful." },
+            { step: 5, title: "Beta Reader Cycles", description: "Gather feedback from target readers on overall readability, emotional impact, and pacing. Provide them with specific questions to guide their feedback." },
+            { step: 6, title: "Formatting for Publication", description: "Prepare the manuscript file for submission to agents (standard manuscript format) or for direct upload to e-book and print-on-demand services." }
+        ]
+    };
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const contentSections = document.querySelectorAll('.content-section');
+    let pacingChartInstance = null;
+    let ratingChartInstance = null;
+
+    function switchView(viewId) {
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.dataset.view === viewId);
+        });
+        contentSections.forEach(section => {
+            section.classList.toggle('active', section.id === viewId);
+        });
+
+        if (viewId === 'pacing' && !pacingChartInstance) {
+            initPacingChart();
+        }
+        if (viewId === 'overview' && !ratingChartInstance) {
+            initRatingChart();
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const viewId = e.target.dataset.view;
+            switchView(viewId);
+        });
+    });
+
+    function initRatingChart() {
+        const ctx = document.getElementById('ratingChart').getContext('2d');
+        ratingChartInstance = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [9, 1],
+                    backgroundColor: ['#C06B3E', '#F0E9E1'],
+                    borderColor: ['#C06B3E', '#F0E9E1'],
+                    borderWidth: 1,
+                    circumference: 360,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: {
+                    tooltip: {
+                        enabled: false
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function initPacingChart() {
+        const paceToValue = {
+            "Slow/Anxious": 1,
+            "Slow/Anxious, then abrupt shift": 1.5,
+            "Deliberate, gradually escalating": 2,
+            "Slow burn, then accelerated conflict": 2.5,
+            "Measured, reflective": 2,
+            "Urgent, then reflective, then rapid": 4,
+            "Initial lightness, then heavy": 2.5,
+            "Accelerating tension, climactic": 4.5,
+            "Moderate, then rapid for breakup": 3.5,
+            "Deliberate, rising tension": 3,
+            "Deliberate, building tension": 3,
+            "Slowed, accelerating to climax": 3.5,
+            "Slow burn, accelerated middle": 3,
+            "Slowed, accelerating to decision": 3.5,
+            "Deliberate, building to climax": 4,
+            "Slow, abrupt shift, intensified climax": 4.5,
+            "Slowed, accelerated, then reflective": 2,
+            "Deliberate, reflective": 2,
+            "Moderate, then dramatic reveal": 3.5,
+            "Gentle, rising tension, climactic": 4
+        };
+
+        const chartData = {
+            labels: appData.pacing.map(p => `Ch. ${p.chapter}`),
+            datasets: [{
+                label: 'Pacing Intensity',
+                data: appData.pacing.map(p => paceToValue[p.pace]),
+                backgroundColor: '#D68D64',
+                borderColor: '#C06B3E',
+                borderWidth: 1
+            }]
+        };
+
+        const ctx = document.getElementById('pacingChart').getContext('2d');
+        pacingChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'x',
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Pacing Intensity (Qualitative)' },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                switch(value) {
+                                    case 1: return 'Slow';
+                                    case 2: return 'Measured';
+                                    case 3: return 'Moderate';
+                                    case 4: return 'Accelerated';
+                                    case 5: return 'Climactic';
+                                    default: return '';
+                                }
+                            }
+                        }
+                    },
+                    x: {
+                        title: { display: true, text: 'Chapter' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const paceData = appData.pacing[context.dataIndex];
+                                if (paceData) {
+                                    label += paceData.pace;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                onClick: (event, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const paceData = appData.pacing[index];
+                        updatePacingDetails(paceData);
+                    }
+                }
+            }
+        });
+    }
+
+    function updatePacingDetails(data) {
+        const container = document.getElementById('pacing-details');
+        container.innerHTML = `
+            <h3 class="text-2xl font-bold text-stone-800 mb-4">Chapter ${data.chapter}</h3>
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-semibold text-stone-700">Dominant Pacing:</h4>
+                    <p class="text-stone-600">${data.pace}</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-stone-700">Justification & Key Events:</h4>
+                    <p class="text-stone-600">${data.justification}</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-stone-700">Emotional Arc Reflected:</h4>
+                    <p class="text-stone-600">${data.arc}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderAnalysis() {
+        const container = document.getElementById('analysis-accordion');
+        container.innerHTML = appData.analysis.map((item, index) => `
+            <div class="rounded-lg border border-stone-200 bg-white shadow-sm overflow-hidden">
+                <button data-accordion-trigger="${index}" class="w-full flex justify-between items-center p-4 md:p-6 text-left hover:bg-amber-50 focus:outline-none transition">
+                    <span class="text-xl font-semibold font-lora text-stone-700">${item.title}</span>
+                    <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div data-accordion-content="${index}" class="hidden p-4 md:p-6 border-t border-stone-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-green-700 mb-2">Strengths</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600">
+                                ${item.strengths.map(s => `<li>${s}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-red-700 mb-2">Areas for Improvement</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600">
+                                ${item.weaknesses.map(w => `<li>${w}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('[data-accordion-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = document.querySelector(`[data-accordion-content="${trigger.dataset.accordionTrigger}"]`);
+                const icon = trigger.querySelector('svg');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    }
+    
+    function renderRoadmap() {
+        const container = document.getElementById('roadmap-container');
+        container.innerHTML = appData.roadmap.map((item, index) => `
+            <div class="bg-white rounded-lg border border-stone-200 shadow-sm transition hover:shadow-md cursor-pointer" data-roadmap-card="${index}">
+                <div class="p-6">
+                    <span class="difficulty-${item.difficulty.toLowerCase()} text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">${item.difficulty}</span>
+                    <h3 class="text-xl font-semibold font-lora text-stone-800 mt-3 mb-2">${item.title}</h3>
+                    <p class="text-stone-600 text-sm">${item.summary}</p>
+                </div>
+                <div data-roadmap-details="${index}" class="hidden px-6 pb-6 border-t border-stone-200">
+                    <h4 class="font-semibold text-stone-700 mt-4 mb-2">Concrete Steps:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-stone-600">
+                        ${item.steps.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                    <h4 class="font-semibold text-stone-700 mt-4 mb-2">Affected Files (Chapters):</h4>
+                    <p class="text-sm text-stone-600 font-mono">${item.files}</p>
+                </div>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('[data-roadmap-card]').forEach(card => {
+            card.addEventListener('click', () => {
+                const details = document.querySelector(`[data-roadmap-details="${card.dataset.roadmapCard}"]`);
+                details.classList.toggle('hidden');
+            });
+        });
+    }
+    
+    function renderRewrites() {
+        const container = document.getElementById('rewrites-container');
+        container.innerHTML = appData.rewrites.map(item => `
+            <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
+                 <h3 class="text-xl font-semibold font-lora text-stone-800 mb-1">${item.title}</h3>
+                 <p class="text-sm text-stone-500 mb-6 font-mono">${item.file}</p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                         <h4 class="text-lg font-semibold text-red-700 mb-2">Before</h4>
+                         <div class="before-after-block border-red-300 text-red-900 bg-red-50 p-4 rounded-md whitespace-pre-wrap">${item.before}</div>
+                     </div>
+                     <div>
+                          <h4 class="text-lg font-semibold text-green-700 mb-2">After</h4>
+                         <div class="before-after-block border-green-300 text-green-900 bg-green-50 p-4 rounded-md whitespace-pre-wrap">${item.after}</div>
+                     </div>
+                 </div>
+            </div>
+        `).join('');
+    }
+
+    function renderPublishingTimeline() {
+        const container = document.getElementById('timeline-container');
+        container.innerHTML = appData.publishing.map(item => `
+            <div class="timeline-item">
+                <h3 class="text-xl font-semibold font-lora text-stone-800">${item.step}. ${item.title}</h3>
+                <p class="text-stone-600 mt-1">${item.description}</p>
+            </div>
+        `).join('');
+    }
+
+
+    // Initial renders
+    renderAnalysis();
+    renderRoadmap();
+    renderRewrites();
+    renderPublishingTimeline();
+    switchView('overview'); // Set initial view
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Novel Blueprint: A Future Forged by Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Soft Accents -->
+    <!-- Application Structure Plan: A tab-based interface is chosen for clear separation between distinct conceptual areas of the novel's plan: the Core Concept, Catalyst Events, Chapter Breakdown, and a QA Checklist. This allows a user (author/editor) to focus on one aspect at a time (e.g., plot structure) without being overwhelmed by the full document. The chapter view is the centerpiece, designed as an interactive timeline, which is more intuitive for understanding narrative flow than a simple list. Clicking a chapter reveals its detailed summary in a modal-like pane, keeping the user anchored in the timeline view. This structure prioritizes usability and a focused, non-linear exploration of the story's architecture. -->
+    <!-- Visualization & Content Choices: Report Info: Chapter List -> Goal: Show narrative progression -> Viz/Presentation: Interactive HTML/CSS Timeline -> Interaction: Click to expand details -> Justification: More intuitive and visually engaging for understanding story flow than a static list. Report Info: Catalyst Events -> Goal: Compare high-stakes choices -> Viz/Presentation: Tabbed content cards -> Interaction: Click tabs to switch -> Justification: Allows for easy side-by-side comparison of the core plot drivers. Report Info: Narrative Pacing -> Goal: Visualize the balance of story beats -> Viz/Presentation: Bar Chart (Chart.js) showing tension/intimacy -> Interaction: Hover for details -> Justification: Provides a quick, scannable overview of the story's emotional rhythm. All diagrams are built with HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .tab-active {
+            border-bottom: 2px solid #D97706;
+            color: #D97706;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            color: #9CA3AF;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chapter-node {
+            transition: all 0.3s ease;
+        }
+        .chapter-node.active {
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .timeline-line {
+            width: 4px;
+            background-color: #E5E7EB;
+            position: absolute;
+            top: 2rem;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+         .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Interactive Novel Blueprint</h1>
+            <p class="text-xl text-gray-500 mt-2 font-serif italic">A Future Forged by Love</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-gray-200 mb-8">
+            <button class="tab tab-active py-4 px-6 block hover:text-yellow-600 focus:outline-none" data-tab="story-core">Core Concept</button>
+            <button class="tab tab-inactive py-4 px-6 block hover:text-yellow-600 focus:outline-none" data-tab="catalysts">Catalyst Events</button>
+            <button class="tab tab-inactive py-4 px-6 block hover:text-yellow-600 focus:outline-none" data-tab="chapters">Chapter Journey</button>
+            <button class="tab tab-inactive py-4 px-6 block hover:text-yellow-600 focus:outline-none" data-tab="qa">QA Checklist</button>
+        </nav>
+
+        <main>
+            <!-- Story Core Section -->
+            <section id="story-core" class="content-section active">
+                 <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Embracing the Heart of the Story</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">This section outlines the foundational elements of the novel. It explores the central themes, the desired emotional tone, and the unique blend of romance and gentle sci-fi that defines the narrative of Andrew, Natalie, and their extraordinary daughter, Anna.</p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-700 mb-3 font-serif">Narrative Vision</h3>
+                            <p class="text-gray-600 leading-relaxed">The vision is for a warm, earnest, and lightly lyrical narrative that evokes the bittersweet catharsis of a Nicholas Sparks story, while infused with the gentle wonder of a subtle speculative concept. The goal is a page-turner grounded in human emotion, where the sci-fi element enhances the human drama rather than overshadowing it.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-700 mb-3 font-serif">Core Themes</h3>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-yellow-600 mr-3 mt-1">&#10003;</span><span><strong class="font-semibold">Choice vs. Destiny:</strong> Anna's foresight forces a constant, deeply personal questioning of free will versus a predetermined path.</span></li>
+                                <li class="flex items-start"><span class="text-yellow-600 mr-3 mt-1">&#10003;</span><span><strong class="font-semibold">Sacrifice for Love:</strong> The central dilemma compels Andrew to weigh his lifelong career ambitions against the well-being of his family.</span></li>
+                                <li class="flex items-start"><span class="text-yellow-600 mr-3 mt-1">&#10003;</span><span><strong class="font-semibold">The Quiet Heroism of Everyday Love:</strong> True success is ultimately found not in grand achievements, but in integrity and familial bonds.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="mt-8">
+                        <h3 class="text-2xl font-semibold text-gray-700 mb-4 font-serif text-center">Narrative Pacing & Tension</h3>
+                        <p class="text-center text-gray-600 mb-4">The story's emotional rhythm is built on alternating between intimate character moments and escalating external pressures. This chart visualizes the planned intensity across the three acts, ensuring a compelling flow that builds to a satisfying climax.</p>
+                        <div class="chart-container">
+                            <canvas id="pacingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Catalysts Section -->
+            <section id="catalysts" class="content-section">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Plausible Forks in the Road</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">To ground the story in reality, the "mega-unlikely" catalysts (lottery win, plane crash) are replaced with plausible, high-stakes alternatives. These events must prove Anna's foresight in subtle yet undeniable ways, forcing Andrew into his core dilemma: career versus love. Interact with the tabs below to explore each potential catalyst.</p>
+                    
+                    <div id="catalyst-tabs" class="mb-4 border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                            <button class="catalyst-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-yellow-500 text-yellow-600" data-catalyst="blueprint">The Flawed Blueprint</button>
+                            <button class="catalyst-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-catalyst="medical">The Uninsured Medical Crisis</button>
+                            <button class="catalyst-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-catalyst="reputation">The Reputational Fallout</button>
+                        </nav>
+                    </div>
+
+                    <div id="catalyst-content">
+                        <!-- Catalyst content will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapters Section -->
+            <section id="chapters" class="content-section">
+                 <div class="grid lg:grid-cols-3 gap-8">
+                    <div id="chapter-list-container" class="lg:col-span-1 space-y-4 h-[70vh] overflow-y-auto pr-4">
+                       <!-- Chapter list will be injected here -->
+                    </div>
+                    <div id="chapter-detail-container" class="lg:col-span-2 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div id="chapter-detail-content" class="sticky top-8">
+                           <h2 class="text-3xl font-bold text-gray-800 mb-2">Chapter Journey</h2>
+                           <p class="text-lg text-gray-600 mb-6">Explore the full narrative arc, from the disruption of the ordinary world to the final, bittersweet resolution. Click on a chapter to the left to see its detailed summary, character focus, and key dramatic drivers.</p>
+                            <div class="text-center mt-12">
+                                <div class="text-5xl text-gray-300">📖</div>
+                                <p class="mt-4 text-gray-400">Select a chapter to begin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QA Checklist Section -->
+            <section id="qa" class="content-section">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Author's Quality Assurance Checklist</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">This checklist provides a framework for self-editing and revision. It is tailored to the specific challenges of this hybrid-genre novel, ensuring all structural, character, and thematic elements are polished and cohesive.</p>
+                    <div class="space-y-8" id="qa-list">
+                       <!-- QA categories will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+
+                tabs.forEach(t => {
+                    t.classList.remove('tab-active');
+                    t.classList.add('tab-inactive');
+                });
+                tab.classList.add('tab-active');
+                tab.classList.remove('tab-inactive');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        const catalystsData = {
+            blueprint: {
+                title: 'The Flawed Blueprint',
+                logline: 'Andrew, a structural engineer, discovers a critical design flaw in a high-profile city bridge project, which his firm is pressured to cover up to meet deadlines and secure a lucrative deal.',
+                realism: 'Ethical dilemmas in engineering, where safety conflicts with cost and corporate pressure, are common and can lead to severe public consequences if ignored. This scenario grounds the stakes in a relatable professional crisis.',
+                foreshadowing: 'Anna repeatedly draws pictures of a cracked bridge with stick figures falling, or insists on playing with toy cars that "fall down" when crossing a specific block bridge.',
+                theme: 'Sacrifice (of career integrity/dream for safety), Choice (ethical vs. professional advancement)'
+            },
+            medical: {
+                title: 'The Uninsured Medical Crisis',
+                logline: 'Natalie’s younger sibling faces a sudden, life-threatening illness requiring experimental treatment not covered by insurance, creating an overwhelming financial burden for the family.',
+                realism: 'Medical emergencies and their associated financial strain are a devastating reality for many families, often forcing difficult choices about career, location, and support systems.',
+                foreshadowing: 'Anna begins talking about "sick leaves" or "faraway doctors," and draws a picture of a wilting plant next to a healthy one, or a family separated by a long, winding road.',
+                theme: 'Love (for family), Sacrifice (of financial stability/career dream for health), Choice (career vs. family well-being)'
+            },
+            reputation: {
+                title: 'The Reputational Fallout',
+                logline: 'Andrew, a respected academic, is falsely accused of plagiarism or research misconduct in a highly competitive field, threatening his tenure, reputation, and ability to continue his life’s work.',
+                realism: 'Wrongful accusations and legal jeopardy, especially in professional or academic settings, can have devastating psychological and career impacts, leading to social isolation and financial strain.',
+                foreshadowing: 'Anna repeatedly "corrects" Andrew\'s writing, saying "that\'s not yours," or draws tangled lines of text and a "broken" award or diploma, hinting at intellectual property issues or career sabotage.',
+                theme: 'Fate (of reputation), Choice (fighting for truth vs. protecting family from exposure), Love (for integrity/family)'
+            }
+        };
+
+        const catalystTabs = document.querySelectorAll('.catalyst-tab');
+        const catalystContentContainer = document.getElementById('catalyst-content');
+
+        function displayCatalyst(catalystKey) {
+            const data = catalystsData[catalystKey];
+            catalystContentContainer.innerHTML = `
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 font-serif mb-4">${data.title}</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <strong class="font-semibold text-gray-700 block mb-1">Event Logline:</strong>
+                            <p class="text-gray-600 pl-4 border-l-2 border-yellow-500">${data.logline}</p>
+                        </div>
+                        <div>
+                            <strong class="font-semibold text-gray-700 block mb-1">Real-Life Parallel:</strong>
+                            <p class="text-gray-600">${data.realism}</p>
+                        </div>
+                        <div>
+                            <strong class="font-semibold text-gray-700 block mb-1">Anna's Foreshadowing:</strong>
+                            <p class="text-gray-600">${data.foreshadowing}</p>
+                        </div>
+                         <div>
+                            <strong class="font-semibold text-gray-700 block mb-1">Thematic Lever:</strong>
+                            <p class="text-gray-600">${data.theme}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        catalystTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.catalyst;
+                catalystTabs.forEach(t => {
+                    t.classList.remove('border-yellow-500', 'text-yellow-600');
+                    t.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                });
+                tab.classList.add('border-yellow-500', 'text-yellow-600');
+                tab.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                displayCatalyst(target);
+            });
+        });
+        
+        displayCatalyst('blueprint');
+
+        const chaptersData = [
+            { id: 1, title: "The Architect's Canvas", act: 1, summary: "Andrew, a dedicated structural engineer, is introduced, deeply immersed in his work on the city's ambitious new bridge project. We meet his family and establish their loving dynamic. Andrew's ambition is contrasted with the quiet, grounding presence of his family." },
+            { id: 2, title: "Anna's Peculiar Play", act: 1, summary: "Anna's 'imagination' becomes more pronounced through collapsing block structures and unsettling drawings of cracked bridges. The family's cherished red leaf token is introduced as a recurring motif in her play." },
+            { id: 3, title: "The Golden Opportunity", act: 1, summary: "Andrew is offered a prestigious promotion to lead the final phase of the bridge project. The offer comes with immense pressure, forcing him to overlook minor discrepancies and pulling him away from family." },
+            { id: 4, title: "A Crack in the Drawing", act: 1, summary: "Andrew discovers a minor structural anomaly in the blueprints that nags at him. Anna's drawings become more specific, uncannily depicting the same flawed section, forcing Andrew to confront her possible foresight." },
+            { id: 5, title: "The Uneasy Feeling", act: 1, summary: "Andrew discreetly re-examines the calculations and discovers a catastrophic flaw, deliberately obscured. This inciting incident creates his moral quandary: expose the flaw and ruin his career, or stay silent and risk disaster." },
+            { id: 6, title: "The Whispers of Doubt", act: 2, summary: "Andrew's concerns are dismissed by a colleague due to corporate pressure. Feeling isolated, he hints at the impossible truth about Anna to a concerned Natalie, who struggles with disbelief." },
+            { id: 7, title: "Unveiling the Flaw", act: 2, summary: "Driven by moral duty, Andrew works secretly to gather irrefutable proof of the flaw. Anna, sensing his stress, creates more urgent and chaotic drawings of the bridge." },
+            { id: 8, title: "Corporate Pressure", act: 2, summary: "Senior partners pressure Andrew to sign off on the flawed plans, threatening his career. Natalie's unwavering support strengthens his resolve to uphold their shared values." },
+            { id: 9, title: "Natalie's Plea", act: 2, summary: "Terrified of the danger Andrew is in, Natalie pleads with him to reconsider. Their raw, emotional conversation forces him to articulate the full scope of Anna's foresight and the moral imperative he feels." },
+            { id: 10, title: "The Bridge to Nowhere (Midpoint)", act: 2, summary: "Andrew makes his irreversible choice: he bypasses his firm and submits a detailed report to the city's building authority. This midpoint reversal sees him shift from reacting to proactively taking control, as Anna has a terrifyingly vivid vision of the bridge's collapse." },
+            { id: 11, title: "A Family's Resolve", act: 2, summary: "The firm retaliates with suspension and legal action, creating a public scandal. United, Andrew and Natalie face the storm, their bond strengthened as they protect Anna." },
+            { id: 12, title: "The Legal Tightrope", act: 2, summary: "A lawyer outlines the daunting legal battle ahead. The firm plans to paint Andrew as unstable, forcing the family to strategize how to protect Anna from public exposure." },
+            { id: 13, title: "Echoes of a Different Path", act: 2, summary: "An encounter with a former colleague who knew of the flaw but stayed silent reaffirms Andrew's choice. He sees the emptiness of the path he didn't take, gaining clarity on his sacrifice." },
+            { id: 14, title: "The Public's Eye", act: 2, summary: "The story breaks wide, becoming a national news sensation. The family faces intense media scrutiny, retreating into their private world to protect Anna." },
+            { id: 15, title: "The Cost of Truth", act: 3, summary: "During the official investigation, the legal and professional battles drain Andrew. He faces his 'dark night of the soul,' questioning the immense personal cost as his career dream feels shattered." },
+            { id: 16, title: "Darkest Before Dawn", act: 3, summary: "At his lowest point, with doubt cast on his evidence, Andrew despairs. Sensing his sadness, Anna produces a new, clearer drawing pointing to a key piece of overlooked evidence or a witness." },
+            { id: 17, title: "The Reckoning", act: 3, summary: "Guided by Anna's drawing, Andrew and Natalie uncover the irrefutable evidence that vindicates him and exposes the firm's cover-up. This climax resolves the primary external conflict." },
+            { id: 18, title: "Rebuilding Foundations", act: 3, summary: "With his reputation restored but his old career path gone, Andrew decides to pursue ethical engineering through teaching or consulting. The family begins to heal, finding a new equilibrium." },
+            { id: 19, title: "The Quiet Heroism", act: 3, summary: "The family settles into a new, simpler life. Andrew finds fulfillment in integrity and love. Anna's gift is accepted as a gentle, guiding presence in their lives." },
+            { id: 20, title: "A Future Forged by Love", act: 3, summary: "Months later, a final, bittersweet scene shows the family's deep connection. Andrew has found a more valuable life than the one he dreamed of, built on love, integrity, and the quiet wonder of his daughter. The red leaf appears one last time." }
+        ];
+
+        const chapterListContainer = document.getElementById('chapter-list-container');
+        const chapterDetailContent = document.getElementById('chapter-detail-content');
+        
+        const acts = {
+            1: { title: "Act I: The Ordinary World Disrupted", chapters: [] },
+            2: { title: "Act II: Rising Stakes & Midpoint Reversal", chapters: [] },
+            3: { title: "Act III: Confrontation, Dark Night, & Resolution", chapters: [] }
+        };
+
+        chaptersData.forEach(ch => acts[ch.act].chapters.push(ch));
+        
+        let chapterHTML = '';
+        for (const actKey in acts) {
+            const act = acts[actKey];
+            chapterHTML += `
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-700 font-serif mb-3 sticky top-0 bg-opacity-90 bg-gray-50 py-2">${act.title}</h3>
+                    <div class="space-y-2 relative">
+            `;
+            act.chapters.forEach(chapter => {
+                 chapterHTML += `
+                    <div class="chapter-node bg-white p-4 rounded-lg border border-gray-200 cursor-pointer hover:border-yellow-500 hover:shadow-md" data-id="${chapter.id}">
+                        <p class="font-semibold text-gray-800">${chapter.id}. ${chapter.title}</p>
+                    </div>
+                `;
+            });
+            chapterHTML += `</div></div>`;
+        }
+        chapterListContainer.innerHTML = chapterHTML;
+
+        const chapterNodes = document.querySelectorAll('.chapter-node');
+
+        chapterNodes.forEach(node => {
+            node.addEventListener('click', () => {
+                const chapterId = parseInt(node.dataset.id);
+                const chapterData = chaptersData.find(c => c.id === chapterId);
+                
+                chapterNodes.forEach(n => n.classList.remove('active', 'border-yellow-600', 'bg-yellow-50'));
+                node.classList.add('active', 'border-yellow-600', 'bg-yellow-50');
+
+                chapterDetailContent.innerHTML = `
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 font-serif">Chapter ${chapterData.id}: ${chapterData.title}</h3>
+                    <div class="mt-4 text-gray-600 text-lg leading-relaxed">
+                        <p>${chapterData.summary}</p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-700">Act: ${chapterData.act}</h4>
+                        <span class="text-sm font-medium ${chapterData.act === 1 ? 'bg-blue-100 text-blue-800' : chapterData.act === 2 ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'} py-1 px-2 rounded">
+                            ${acts[chapterData.act].title.split(':')[0]}
+                        </span>
+                    </div>
+                `;
+                
+                if (window.innerWidth < 1024) {
+                    chapterDetailContent.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        const qaData = [
+            {
+                category: "Structural Coherence & Plot Progression",
+                points: [
+                    "Does the plot flow logically from cause to effect, ensuring no loose ends remain unresolved?",
+                    "Are the inciting incident, midpoint reversal, and climax clearly defined and impactful?",
+                    "Is the pacing effective, alternating intimate moments with escalating external pressure?",
+                    "Are chapter breaks and transitions effective in creating suspense?"
+                ]
+            },
+            {
+                category: "Character Arcs & Emotional Resonance",
+                points: [
+                    "Do Andrew, Natalie, and Anna feel well-defined, distinct, and deeply relatable?",
+                    "Does Andrew undergo a clear and compelling character journey?",
+                    "Are the emotional stakes consistently high and believable?",
+                    "Is the 'career vs. love' dilemma a genuine, agonizing choice?"
+                ]
+            },
+            {
+                category: "Voice, Tone & Thematic Consistency",
+                points: [
+                    "Is the narrative voice consistently warm, earnest, and lightly lyrical?",
+                    "Are the core themes of choice, destiny, and love woven seamlessly throughout?",
+                    "Does the sci-fi thread feel subtle and wondrous, not distracting?",
+                    "Does the ending feel satisfying, yet potentially bittersweet?"
+                ]
+            },
+            {
+                category: "Believability & Foreshadowing",
+                points: [
+                    "Are all plot twists grounded in plausible reality (medical, legal, logistical)?",
+                    "Is Anna's foresight proven subtly yet undeniably?",
+                    "Is foreshadowing subtle (e.g., drawings, props) and does it pay off effectively?",
+                    "Are meaningful props (like the red leaf) utilized for symbolic depth?"
+                ]
+            }
+        ];
+
+        const qaListContainer = document.getElementById('qa-list');
+        let qaHTML = '';
+        qaData.forEach(cat => {
+            qaHTML += `
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 font-serif mb-4">${cat.category}</h3>
+                    <ul class="space-y-3 list-none">
+            `;
+            cat.points.forEach(point => {
+                qaHTML += `
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 h-6 w-6 rounded-full bg-gray-200 mr-4 mt-1 flex items-center justify-center">
+                           <span class="h-2 w-2 bg-gray-400 rounded-full"></span>
+                        </span>
+                        <p class="text-gray-600">${point}</p>
+                    </li>
+                `;
+            });
+            qaHTML += '</ul></div>';
+        });
+        qaListContainer.innerHTML = qaHTML;
+
+        const pacingCtx = document.getElementById('pacingChart').getContext('2d');
+        new Chart(pacingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Act I (Ch 1-5)', 'Act II (Ch 6-9)', 'Midpoint (Ch 10)', 'Act II (Ch 11-14)', 'Act III (Ch 15-17)', 'Denouement (Ch 18-20)'],
+                datasets: [{
+                    label: 'Tension/Stakes',
+                    data: [3, 6, 9, 7, 10, 4],
+                    backgroundColor: 'rgba(217, 119, 6, 0.6)',
+                    borderColor: 'rgba(217, 119, 6, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Intimacy/Character Moments',
+                    data: [5, 4, 2, 5, 3, 8],
+                     backgroundColor: 'rgba(107, 114, 128, 0.4)',
+                    borderColor: 'rgba(107, 114, 128, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Relative Intensity' }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
