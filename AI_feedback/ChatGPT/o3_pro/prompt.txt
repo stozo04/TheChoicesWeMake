@@ -1,0 +1,52 @@
+Master Prompt: The 'Bestseller' Novel Revision
+[OVERALL GOAL]
+Your mission is to transform a detailed rough draft of a high-concept love story into a polished, emotionally resonant, and commercially successful novel poised to become a New York Times Best Seller. You will rewrite, revise, and restructure the provided materials to create a complete manuscript of approximately 150,000 words that captures the powerful, bittersweet essence of the core narrative.
+
+[ROLE]
+You are a bestselling author, a literature expert, and a masterful creative writer, channeling the narrative style and emotional depth of Nicholas Sparks. You have an intuitive understanding of what makes a love story unforgettable and possess a passion for crafting narratives that capture the hearts and imaginations of a young adult and adult female audience. Your voice is poignant, heartfelt, and deeply empathetic. You excel at exploring themes of love, fate, loss, and redemption through compelling characters and immersive settings.
+
+[CONTEXT & SOURCE MATERIAL]
+You will be working with a comprehensive set of source materials that constitute a complete rough draft of a novel. Your first step is to conduct a thorough and holistic analysis of all provided materials to gain a complete understanding of the original work.
+
+Chapter Files: A series of 21 text files (01_title_of_chapter.txt through 20_title_of_chapter.txt, plus epilogue_title.txt).
+Novel Mind Map: A mind map file (mind_map.ext) that visually outlines the story.
+Central Love Story: The evolving, fated love story between Andrew (a Computer Science student) and Natalie (a Nursing student), profoundly shaped and protected by the extraordinary presence of their time-traveling daughter, Anna.
+Core Theme: Your guiding principle is: "True love is found not in avoiding life's storms, but in the selfless choices made to protect those you cherish, proving that destiny can be shaped by the quiet heroism of the heart."
+Central Conflicts:
+Andrew's Internal Conflict: Reconciling his personal ambitions with his love for Natalie and their family; grappling with the weight of Anna's foresight and the fear of repeating his father's mistakes.
+Natalie's Internal Conflict: Learning to trust Andrew fully, accepting the unbelievable truth of Anna, and navigating the fears and wonders of unexpected parenthood.
+External Conflict: Navigating life-threatening situations and high-stakes academic/professional dilemmas, subtly orchestrated by Anna's foresight, which challenge their integrity and force them to protect their future.
+Setting: The story is set in a vibrant, traditional university town and Andrew's nearby hometown. The changing seasons (fall, winter, spring) must mirror the emotional arc of the narrative. You must utilize the key symbolic locations: Brewed Awakening (coffee shop), the university campus (including the bridge, greenhouse, and quad), the old oak tree with the carved "A&N" bench, and Andrew's family home.
+Non-Negotiable Narrative Pillars: The following elements are the foundational heart of the story and must be preserved and enhanced in your revision:
+The core family unit: Andrew, Natalie, and their time-traveling daughter, Anna.
+Anna's subtle, initially dismissible foresight (not overt magic).
+The "Flight that never was" incident as the core life-or-death catalyst.
+Andrew's central dilemma: Career vs. Love/Family.
+The storyline of Andrew's mother, Jill, her illness, her passing, and the creation of the "Jill Nolan Memorial Cancer Initiative."
+The bittersweet, hopeful, and cathartic ending, culminating in the "full circle" epilogue where Andrew visits the adult Dr. Anna at the hospital.
+[EXPECTATIONS & EXECUTION - A TWO-PHASE PROCESS]
+
+Phase 1: Strategic Revision Summary
+
+Before writing the new manuscript, your first and most critical deliverable is a comprehensive "Strategic Revision Summary." This document will be the detailed blueprint for the novel and must contain the following sections:
+
+Storyline Cohesion Plan: Identify all plot holes, timeline errors, and storyline inconsistencies in the draft. Propose specific, concrete fixes for each.
+Structural Overhaul & Chapter Blueprint: Propose a new chapter structure of 20-30 chapters plus an epilogue. Provide a new chapter list. For each proposed chapter in the list, you must provide a detailed, one-page summary that covers its specific plot advancements, character development goals, key scenes, and intended emotional arc.
+Character Deepening Strategy: Detail your proposed changes to deepen the main characters. Explain how you will flesh out Andrew's and Natalie's internal conflicts, make their emotional journeys more granular, and ensure their dialogue and actions are consistently authentic.
+The "Lottery" Replacement Proposal: Propose a new plot device to replace the lottery. This new scenario must achieve the two original goals: (1) prove Anna's foresight in an undeniable way to Andrew, and (2) create a significant financial/ethical dilemma. The solution must be grounded and realistic for a Computer Science student. Brainstorm ideas related to a predicted cybersecurity flaw, a niche tech stock fluctuation, or a programming competition with a predictable outcome. Justify your chosen replacement.
+Grounding the Narrative (Realism Enhancements): Detail your specific plan to address and fix the following potentially unrealistic elements:
+Anna's Appearances/Disappearances: Explain how you will rewrite these moments to feel less like magic and more like subtle, plausibly deniable events. Andrew should question his own perception, not witness an impossible act.
+The Acceptance of the Truth: Outline how you will slow down and add more psychological depth to the moment Andrew and Natalie accept Anna's nature. Show them grappling with shock, denial, and questioning before reaching full acceptance.
+The "Anonymous Donation": Revise this plot point to feel more earned and less like a deus ex machina. Propose a scenario where Anna's foresight guides Andrew and Natalie to an opportunity for funding that still requires their own significant effort to secure.
+Phase 2: Novel Generation
+
+Upon my approval of your "Strategic Revision Summary," you will begin writing the full novel.
+
+Style and Voice: Adhere strictly to the Nicholas Sparks-esque style. The prose must be evocative, poignant, and accessible, with a focus on the internal, emotional landscape of the characters.
+Emotional Resonance: Your primary objective is to create a story so compelling it is impossible to put down. Every scene must be crafted to build connection, heighten stakes, and explore the depths of human feeling.
+Delivery: You will deliver the completed novel one chapter at a time for my review. After delivering the summary for my approval, you will begin with Chapter 1. You must await my "continue" command before proceeding to write the next chapter.
+[FINAL DELIVERABLES]
+
+Deliverable #1: The complete "Strategic Revision Summary," including the detailed, per-chapter blueprint, for my approval.
+Deliverable #2: The full, rewritten novel manuscript, delivered sequentially, one chapter at a time.
+Begin your analysis of the source material now. I await your "Strategic Revision Summary."
